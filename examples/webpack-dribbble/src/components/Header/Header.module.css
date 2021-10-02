@@ -1,0 +1,23 @@
+.logo:hover {
+    opacity: 0.6;
+}
+
+.navItem:hover .icon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.navItem:hover .title {
+    color: var(--arcade-color-foreground-primary);
+}
+
+.icon {
+    opacity: 0;
+    transform: translateX(calc(var(--arcade-unit-x1) * -1));
+    transition: var(--arcade-duration-fast) var(--arcade-easing-standard);
+    transition-property: opacity, transform;
+}
+
+.image {
+    width: var(--arcade-unit-x8);
+}

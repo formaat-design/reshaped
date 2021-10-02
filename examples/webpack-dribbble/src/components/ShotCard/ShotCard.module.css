@@ -1,0 +1,8 @@
+.scrim {
+    opacity: 0;
+    transition: opacity var(--arcade-duration-slow) var(--arcade-easing-standard);
+}
+
+.root:hover .scrim {
+    opacity: 1;
+}
