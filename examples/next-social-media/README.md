@@ -1,4 +1,4 @@
-## Arcade NextJS example
+## Arcade - NextJS example
 
 This is an example of [Arcade](https://arcade.design) being used to create a social media card component.
 It covers some of the layout principles Arcade follows and provides some examples for interactive components.

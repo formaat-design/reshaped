@@ -1,4 +1,4 @@
-## Arcade Webpack example
+## Arcade - Webpack example
 
 This is an example of [Arcade](https://arcade.design) being used to create a [dribbble.com](https://dribbble.com) homepage.
 

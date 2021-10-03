@@ -9,7 +9,7 @@
     "build:themes": "tsc -p tsconfig.theme.json && arcade theming dist/themes/index.js -o src/themes -t ts"
   },
   "dependencies": {
-    "arcade": "../../vendor/arcade-v0.12.0-1.tgz",
+    "arcade": "../../vendor/arcade-v0.12.0-2.tgz",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
