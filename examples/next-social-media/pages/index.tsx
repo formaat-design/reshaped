@@ -83,7 +83,6 @@ const AccountInformation = () => (
       <Avatar
         size="large"
         src="https://pbs.twimg.com/profile_images/1096029593335676929/OZbE9ZXV_400x400.png"
-        ariaLabel="Dmitry Belyaev"
       />
 
       <Stack.Item grow>
@@ -148,7 +147,6 @@ const PostHeader = () => {
               <Avatar
                 size="small"
                 src="https://pbs.twimg.com/profile_images/1096029593335676929/OZbE9ZXV_400x400.png"
-                ariaLabel="Dmitry Belyaev"
               />
             </Actionable>
           )}
@@ -231,7 +229,7 @@ const PostFooter = () => {
 
 const PostCard = () => {
   return (
-    <Card padded={false}>
+    <Card padding={0}>
       <Frame padding={4}>
         <Stack gap={2}>
           <Stack.Item>

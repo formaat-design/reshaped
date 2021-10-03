@@ -566,9 +566,9 @@ aproba@^1.1.1:
   resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
   integrity sha512-Y9J6ZjXtoYh8RnXVCMOU/ttDmk1aBjunq9vO0ta5x85WDQiQfUF9sIPBITdbiiIVcBo03Hi3jMxigBtsddlXRw==
 
-arcade@../../vendor/arcade-v0.11.0.tgz:
-  version "0.11.0"
-  resolved "../../vendor/arcade-v0.11.0.tgz#4f22941970df7b8d840d8fb1a12eff38e08343c5"
+arcade@../../vendor/arcade-v0.12.0.tgz:
+  version "0.12.0"
+  resolved "../../vendor/arcade-v0.12.0.tgz#256bdd6972d78cfce76c135498b8869cf59af792"
   dependencies:
     autoprefixer "9.7.5"
     chalk "4.1.1"

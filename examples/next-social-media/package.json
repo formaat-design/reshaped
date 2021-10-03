@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "arcade": "../../vendor/arcade-v0.11.0.tgz",
+    "arcade": "../../vendor/arcade-v0.12.0.tgz",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"

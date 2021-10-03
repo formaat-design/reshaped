@@ -1,0 +1,32 @@
+{
+  "name": "arcade-dribbble",
+  "version": "0.1.13",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve",
+    "build": "webpack",
+    "build:themes": "tsc -p tsconfig.theme.json && arcade theming dist/themes/index.js -o src/themes -t ts"
+  },
+  "dependencies": {
+    "arcade": "../../vendor/arcade-v0.12.0-1.tgz",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.3",
+    "@types/react-dom": "17.0.3",
+    "copy-webpack-plugin": "9.0.1",
+    "css-loader": "6.3.0",
+    "html-webpack-plugin": "5.3.2",
+    "mini-css-extract-plugin": "2.3.0",
+    "postcss-loader": "6.1.1",
+    "prettier": "2.4.1",
+    "style-loader": "3.3.0",
+    "ts-loader": "9.2.6",
+    "typescript": "4.4.3",
+    "webpack": "5.56.0",
+    "webpack-cli": "4.8.0",
+    "webpack-dev-server": "4.3.0"
+  }
+}

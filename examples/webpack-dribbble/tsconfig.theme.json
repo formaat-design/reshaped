@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "importsNotUsedAsValues": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "target": "es5",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "outDir": "./dist/themes",
+    "baseUrl": "./src/themes",
+    "rootDir": "./src/themes"
+  },
+  "include": ["./src/themes/index.ts"],
+  "exclude": ["./node_modules", "./docs"]
+}
