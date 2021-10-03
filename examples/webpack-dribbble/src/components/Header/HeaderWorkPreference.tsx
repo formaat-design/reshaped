@@ -52,7 +52,7 @@ const HeaderWorkPreference = () => {
             </Text>
           </Stack>
 
-          <Button variant="text" href="#">
+          <Button variant="ghost" href="#" fullWidth>
             Edit work preferences
           </Button>
         </Stack>

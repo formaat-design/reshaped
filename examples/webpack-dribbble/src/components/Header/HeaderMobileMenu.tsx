@@ -11,6 +11,7 @@ import {
   Text,
   Button,
   Frame,
+  Link,
 } from "arcade";
 import IconMenu from "icons/Menu";
 import header from "data/header";
@@ -53,7 +54,6 @@ const HeaderMobileMenu = () => {
           startSlot={
             <Avatar
               src="https://cdn.dribbble.com/users/226667/avatars/normal/4c24342634cf5c822f3f23cfd803a66b.jpg?1461685850"
-              ariaLabel="Dmitry Belyaev"
               size="small"
             />
           }
@@ -65,15 +65,23 @@ const HeaderMobileMenu = () => {
           <Stack direction="row">
             <Stack.Item size={6}>
               <Stack align="start">
-                <Button variant="text">Profile</Button>
-                <Button variant="text">Work preferences</Button>
+                <Link color="inherit" variant="plain">
+                  Profile
+                </Link>
+                <Link color="inherit" variant="plain">
+                  Work preferences
+                </Link>
               </Stack>
             </Stack.Item>
 
             <Stack.Item size={6}>
               <Stack align="start">
-                <Button variant="text">My likes</Button>
-                <Button variant="text">My collections</Button>
+                <Link color="inherit" variant="plain">
+                  My likes
+                </Link>
+                <Link color="inherit" variant="plain">
+                  My collections
+                </Link>
               </Stack>
             </Stack.Item>
           </Stack>
@@ -82,7 +90,9 @@ const HeaderMobileMenu = () => {
         <Divider />
 
         <Frame padding={4}>
-          <Button variant="text">Sign out</Button>
+          <Link color="inherit" variant="plain">
+            Sign out
+          </Link>
         </Frame>
       </Drawer>
     </>

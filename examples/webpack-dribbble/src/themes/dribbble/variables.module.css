@@ -167,6 +167,11 @@
 --arcade-color-black: #000000;
 --arcade-color-white: #ffffff;
 --arcade-color-on-background-primary: #fff;
+--arcade-color-rgb-background-primary: 234, 76, 137;
+--arcade-color-rgb-background-primary-faded: 255, 222, 235;
+--arcade-color-rgb-background-primary-highlighted: 240, 130, 172;
+--arcade-color-rgb-black: 0, 0, 0;
+--arcade-color-rgb-white: 255, 255, 255;
 --arcade-duration-fast: 150ms;
 --arcade-duration-medium: 250ms;
 --arcade-duration-slow: 300ms;
@@ -203,8 +208,22 @@
 --arcade-color-background-base: #ffffff;
 --arcade-color-background-elevated: #ffffff;
 --arcade-color-on-background-neutral: #000;
+--arcade-color-rgb-background-neutral: 223, 226, 234;
+--arcade-color-rgb-background-neutral-faded: 244, 245, 247;
+--arcade-color-rgb-background-neutral-highlighted: 199, 205, 219;
+--arcade-color-rgb-background-disabled: 235, 237, 242;
+--arcade-color-rgb-background-disabled-faded: 244, 245, 247;
 --arcade-color-on-background-critical: #fff;
+--arcade-color-rgb-background-critical: 222, 53, 53;
+--arcade-color-rgb-background-critical-faded: 251, 229, 229;
+--arcade-color-rgb-background-critical-highlighted: 202, 33, 33;
 --arcade-color-on-background-positive: #fff;
+--arcade-color-rgb-background-positive: 16, 168, 130;
+--arcade-color-rgb-background-positive-faded: 232, 247, 243;
+--arcade-color-rgb-background-page: 255, 255, 255;
+--arcade-color-rgb-background-page-faded: 248, 248, 248;
+--arcade-color-rgb-background-base: 255, 255, 255;
+--arcade-color-rgb-background-elevated: 255, 255, 255;
 			}
 		
 			.dark {
@@ -233,7 +252,21 @@
 --arcade-color-background-base: #181C25;
 --arcade-color-background-elevated: #1C212B;
 --arcade-color-on-background-neutral: #fff;
+--arcade-color-rgb-background-neutral: 48, 55, 74;
+--arcade-color-rgb-background-neutral-faded: 36, 41, 56;
+--arcade-color-rgb-background-neutral-highlighted: 64, 74, 99;
+--arcade-color-rgb-background-disabled: 40, 46, 62;
+--arcade-color-rgb-background-disabled-faded: 36, 41, 56;
 --arcade-color-on-background-critical: #fff;
+--arcade-color-rgb-background-critical: 222, 53, 53;
+--arcade-color-rgb-background-critical-faded: 96, 16, 16;
+--arcade-color-rgb-background-critical-highlighted: 226, 80, 80;
 --arcade-color-on-background-positive: #fff;
+--arcade-color-rgb-background-positive: 16, 168, 130;
+--arcade-color-rgb-background-positive-faded: 10, 112, 87;
+--arcade-color-rgb-background-page: 13, 17, 23;
+--arcade-color-rgb-background-page-faded: 17, 23, 31;
+--arcade-color-rgb-background-base: 24, 28, 37;
+--arcade-color-rgb-background-elevated: 28, 33, 43;
 			}
 		

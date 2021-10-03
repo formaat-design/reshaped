@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Stack, Text } from "arcade";
+import { Link, Stack, Text } from "arcade";
 import * as T from "./Menu.types";
 
 const Menu = (props: T.Props) => {
@@ -9,9 +9,11 @@ const Menu = (props: T.Props) => {
     <Stack gap={4} align="start">
       <Text variant="strong2">{title}</Text>
       {items.map((item) => (
-        <Button variant="text" href={item.href} key={item.title}>
-          {item.title}
-        </Button>
+        <Text variant="medium2" key={item.title}>
+          <Link href={item.href} color="inherit" variant="plain">
+            {item.title}
+          </Link>
+        </Text>
       ))}
     </Stack>
   );

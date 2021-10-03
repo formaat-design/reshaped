@@ -40,15 +40,15 @@ module.exports = {
               esModule: false,
             },
           },
-          // {
-          //   loader: "css-loader",
-          //   options: {
-          //     modules: {
-          //       localIdentName: "[name]__[local]--[hash:base64:5]",
-          //     },
-          //   },
-          // },
-          "css-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[name]__[local]--[hash:base64:5]",
+              },
+            },
+          },
+          // "css-loader",
           "postcss-loader",
         ],
       },

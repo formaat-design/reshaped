@@ -35,14 +35,14 @@ const ShotCard = (props: T.Props) => {
             <Stack.Item grow>
               <Text variant="strong1">{title}</Text>
             </Stack.Item>
-            <Button icon={IconCollection} />
-            <Button icon={IconHeart} />
+            <Button icon={IconCollection} color="white" elevated />
+            <Button icon={IconHeart} color="white" elevated />
           </Stack>
         </Scrim>
       </Frame>
 
       <Stack direction="row" align="center" gap={2}>
-        <Avatar ariaLabel={user.name} src={user.logoUrl} size="smaller" />
+        <Avatar src={user.logoUrl} size="smaller" />
         <Text variant="strong2">{user.name}</Text>
         <Stack.Item grow>
           {user.accountType && (
@@ -51,8 +51,8 @@ const ShotCard = (props: T.Props) => {
         </Stack.Item>
 
         <Stack.Item>
-          <Stack direction="row" gap={2} align="center">
-            <Icon svg={IconHeart} size="smaller" />
+          <Stack direction="row" gap={1} align="center">
+            <Icon svg={IconHeart} size="smallest" color="neutral-faded" />
             <Text variant="caption1" color="neutral-faded">
               {likesCount}
             </Text>
@@ -61,7 +61,7 @@ const ShotCard = (props: T.Props) => {
 
         <Stack.Item>
           <Stack direction="row" gap={2} align="center">
-            <Icon svg={IconEye} size="smaller" />
+            <Icon svg={IconEye} size="smallest" color="neutral-faded" />
             <Text variant="caption1" color="neutral-faded">
               {viewsCount / 1000}k
             </Text>

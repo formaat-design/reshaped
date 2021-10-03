@@ -24,12 +24,7 @@ const HeaderActivity = () => {
       <Popover.Content>
         <Stack>
           <Stack direction="row">
-            <Avatar
-              size="smaller"
-              icon={IconCollection}
-              ariaLabel="Collections icon"
-              color="primary"
-            />
+            <Avatar size="smaller" icon={IconCollection} color="primary" />
             <Stack.Item grow>
               <Text variant="medium2">
                 <Link href="#" color="inherit" variant="plain">
@@ -45,12 +40,7 @@ const HeaderActivity = () => {
           </Stack>
 
           <Stack direction="row">
-            <Avatar
-              size="smaller"
-              icon={IconCollection}
-              ariaLabel="Collections icon"
-              color="primary"
-            />
+            <Avatar size="smaller" icon={IconCollection} color="primary" />
             <Stack.Item grow>
               <Text variant="medium2">
                 <Link href="#" color="inherit" variant="plain">
