@@ -3,7 +3,7 @@
  */
 
 const path = require("path");
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -31,13 +31,13 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          "style-loader",
-          // {
-          //   loader: MiniCssExtractPlugin.loader,
-          //   options: {
-          //     esModule: false,
-          //   },
-          // },
+          // "style-loader",
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
+          },
           "css-loader",
           "postcss-loader",
         ],
@@ -53,7 +53,7 @@ module.exports = {
       title: "Arcade Webpack Example",
       template: path.resolve(__dirname, "src/index.html"),
     }),
-    // new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
   ],
   devServer: {
     compress: true,

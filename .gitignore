@@ -2,3 +2,5 @@ vendor/*.tgz
 .DS_Store
 node_modules
 dist
+
+gatsby-starter

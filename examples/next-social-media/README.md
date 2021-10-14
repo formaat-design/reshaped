@@ -16,3 +16,7 @@ However, since we want to provide features like CSS tree-shaking, we don't ship 
 
 NextJS is currently working on supporting that: https://github.com/vercel/next.js/discussions/27953.
 Meanwhile CSS support can be provided by using `next-transpile-modules` together with `@zeit/next-css`.
+
+When using multiple routes in development mode, there is also a known issue due to the css tree-shaking.
+While it's in development for NextJS, there is a known workaround for development mode: https://github.com/vercel/next-plugins/issues/263#issuecomment-751485616.
+Note that it works without errors for production with no workarounds required.

@@ -1,5 +1,5 @@
 {
-  "name": "arcade-webpack",
+  "name": "arcade-webpack-starter",
   "version": "0.1.13",
   "license": "MIT",
   "private": true,
@@ -8,7 +8,7 @@
     "build": "webpack"
   },
   "dependencies": {
-    "arcade": "../../vendor/arcade-v0.12.0-2.tgz",
+    "arcade": "../../vendor/arcade-v0.12.0-9.tgz",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

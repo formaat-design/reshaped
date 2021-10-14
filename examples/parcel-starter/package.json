@@ -1,0 +1,20 @@
+{
+  "name": "arcade-parcel-starter",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "parcel src/index.html"
+  },
+  "dependencies": {
+    "arcade": "../../vendor/arcade-v0.12.0-9.tgz",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "parcel": "^2.0.0-rc.0",
+    "postcss": "^8.3.9",
+    "typescript": "^4.4.3"
+  }
+}
