@@ -1,4 +1,4 @@
-## Arcade - NextJS example
+## Arcade - NextJS demo
 
 This is an example of [Arcade](https://arcade.design) being used to create a social media card component.
 It covers some of the layout principles Arcade follows and provides some examples for interactive components.
@@ -15,7 +15,7 @@ This means that you won't need any runtime dependency for writing CSS in your pr
 However, since we want to provide features like CSS tree-shaking, we don't ship our CSS as a single bundle with styles from all components.
 
 NextJS is currently working on supporting that: https://github.com/vercel/next.js/discussions/27953.
-Meanwhile CSS support can be provided by using `next-transpile-modules` together with `@zeit/next-css`.
+Meanwhile CSS support can be provided by using `next-transpile-modules` together with `arcade-next-css` plugin that's responsible for webpack config customization.
 
 When using multiple routes in development mode, there is also a known issue due to the css tree-shaking.
 While it's in development for NextJS, there is a known workaround for development mode: https://github.com/vercel/next-plugins/issues/263#issuecomment-751485616.

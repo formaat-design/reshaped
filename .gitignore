@@ -3,4 +3,4 @@ vendor/*.tgz
 node_modules
 dist
 
-gatsby-starter
+.parcel-cache

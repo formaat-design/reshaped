@@ -1,6 +1,6 @@
 ## Arcade - Create React App starter
 
-This is a starter example for [Arcade](https://arcade.design) using the default Create React Setup
+This is a starter example for [Arcade](https://arcade.design) using Create React App.
 
 ### Manual installation steps
 

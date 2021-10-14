@@ -2,12 +2,12 @@
 
 This is a starter example for [Arcade](https://arcade.design) using a simple Webpack config.
 
-### Setup
+### Manual installation steps
 
-Arcade works with out-of-the-box Create React App setup by using their default PostCSS config.
-However, Create React App doesn't allow PostCSS customisation.
-This means that custom media plugin won't be applied to the CSS code.
+If you don't want to just copy this example, but rather install it manually, it can be done in a following way:
 
-That's not a problem for Arcade components since we pre-compile the media queries before publishing the package.
-For the product code though, custom media queries are not available until you add PostCSS config provided by Arcade to your build.
-You can achieve that by using tools like [Craco](https://github.com/gsoft-inc/craco).
+1. Install Webpack and all Webpack loaders required for the library. You can find a simle dependencies example in [package.json](./package.json), but you can extend your webpack config with additional loaders if you need to.
+2. Add Arcade to the dependencies. For example, [here](https://github.com/arcade-design/community/blob/master/examples/cra-starter/package.json#L6) we use it from an package in the file system.
+3. Add [postcss.config.js](./postcss.config.js) file to the root folder of your project.
+4. Add Arcade component to your page. You can use [App.tsx](https://github.com/arcade-design/community/blob/master/examples/cra-starter/src/App.tsx) as an example starting page.
+5. Add and run `yarn start` script from [package.json](./package.json) to start the application.
