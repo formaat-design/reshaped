@@ -23,7 +23,7 @@ const HeaderMobileMenu = () => {
   return (
     <>
       <Actionable onClick={() => setMenuActive(true)}>
-        <Icon svg={IconMenu} size="medium" color="neutral-faded" />
+        <Icon svg={IconMenu} size={4} color="neutral-faded" />
       </Actionable>
 
       <Drawer
@@ -44,13 +44,12 @@ const HeaderMobileMenu = () => {
         </Frame>
 
         {header.map((item) => (
-          <MenuItem fullWidth>{item.title}</MenuItem>
+          <MenuItem>{item.title}</MenuItem>
         ))}
 
         <Divider />
 
         <MenuItem
-          fullWidth
           startSlot={
             <Avatar
               src="https://cdn.dribbble.com/users/226667/avatars/normal/4c24342634cf5c822f3f23cfd803a66b.jpg?1461685850"

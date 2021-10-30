@@ -1040,9 +1040,9 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-arcade@../../vendor/arcade-v0.12.0-9.tgz:
-  version "0.12.0"
-  resolved "../../vendor/arcade-v0.12.0-9.tgz#b65505c33d2499def571fed516f12b353a6a3cc6"
+arcade@../../vendor/arcade-v0.14.0-css.tgz:
+  version "0.14.0"
+  resolved "../../vendor/arcade-v0.14.0-css.tgz#40454c3347817502888d4762411dc128da86fb1b"
   dependencies:
     autoprefixer "10.3.7"
     chalk "4.1.1"

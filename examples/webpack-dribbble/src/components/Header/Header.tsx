@@ -56,7 +56,7 @@ const Header = () => {
                     triggerType="hover"
                     key={navItem.title}
                     position="bottom-start"
-                    width={600}
+                    width="600px"
                     padded={false}
                   >
                     <Popover.Trigger>
@@ -89,7 +89,7 @@ const Header = () => {
                         {navItem.categories && (
                           <Frame
                             backgroundColor="neutral-faded"
-                            width={200}
+                            width="200px"
                             padding={6}
                           >
                             <Menu

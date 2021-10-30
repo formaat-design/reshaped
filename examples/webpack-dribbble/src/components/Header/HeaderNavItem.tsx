@@ -7,12 +7,7 @@ import s from "./Header.module.css";
 const HeaderNavItem = (props: T.NavItemProps) => {
   const { title, description, href, image: Image, badge } = props;
   const endSlot = (
-    <Icon
-      svg={IconArrowRight}
-      className={s.icon}
-      color="primary"
-      size="small"
-    />
+    <Icon svg={IconArrowRight} className={s.icon} color="primary" size={4} />
   );
   const startSlot = (
     <div className={s.image}>

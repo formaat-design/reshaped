@@ -23,12 +23,7 @@ const HeaderWorkPreference = () => {
         {(attributes) => (
           <Button.Aligner position={["start", "end"]}>
             <Button variant="ghost" attributes={attributes}>
-              <Icon
-                color="neutral-faded"
-                svg={IconWork}
-                size="small"
-                autoWidth
-              />
+              <Icon color="neutral-faded" svg={IconWork} size={4} autoWidth />
             </Button>
           </Button.Aligner>
         )}

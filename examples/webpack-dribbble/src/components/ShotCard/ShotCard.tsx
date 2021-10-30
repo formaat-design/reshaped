@@ -52,7 +52,7 @@ const ShotCard = (props: T.Props) => {
 
         <Stack.Item>
           <Stack direction="row" gap={1} align="center">
-            <Icon svg={IconHeart} size="smallest" color="neutral-faded" />
+            <Icon svg={IconHeart} size={3} color="neutral-faded" />
             <Text variant="caption1" color="neutral-faded">
               {likesCount}
             </Text>
@@ -61,7 +61,7 @@ const ShotCard = (props: T.Props) => {
 
         <Stack.Item>
           <Stack direction="row" gap={2} align="center">
-            <Icon svg={IconEye} size="smallest" color="neutral-faded" />
+            <Icon svg={IconEye} size={3} color="neutral-faded" />
             <Text variant="caption1" color="neutral-faded">
               {viewsCount / 1000}k
             </Text>

@@ -13,7 +13,7 @@ const HeaderActivity = () => {
               <Icon
                 color="neutral-faded"
                 svg={IconActivity}
-                size="smaller"
+                size={3}
                 autoWidth
               />
             </Button>

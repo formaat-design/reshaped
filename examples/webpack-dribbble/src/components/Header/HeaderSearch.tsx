@@ -19,7 +19,7 @@ const HeaderSearch = (props: T.SearchProps) => {
   return (
     <>
       <Hidden till="xl">
-        <Frame width={140}>{field}</Frame>
+        <Frame width="140px">{field}</Frame>
       </Hidden>
 
       <Hidden till="l" from="xl">
