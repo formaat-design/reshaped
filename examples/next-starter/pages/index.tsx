@@ -1,6 +1,7 @@
 import React from "react";
-import { Arcade, Button, Container, Frame, Text, Stack } from "arcade";
-import theme from "arcade/themes/arcade";
+import { Arcade, Button, Container, Frame, Text, Stack } from "arcade/bundle";
+import "arcade/bundle.css";
+import theme from "themes/product";
 
 const App = () => {
   return (
@@ -8,9 +9,9 @@ const App = () => {
       <Frame align="center" justify="center" height="100vh">
         <Container size="smallest">
           <Stack align="center">
-            <Text variant="display1">🎉</Text>
-            <Text variant="display2">Welcome to Arcade</Text>
-            <Text variant="featured2" align="center">
+            <Text variant="display-1">🎉</Text>
+            <Text variant="display-2">Welcome to Arcade</Text>
+            <Text variant="featured-2" align="center">
               Arcade is a professionally crafted design system for high‑quality
               product development. In this example repository we're using it
               together with NextJS.

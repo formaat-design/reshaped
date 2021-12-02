@@ -8,9 +8,14 @@ If you don't want to just copy this example, but rather install it manually, it 
 
 1. Create a new React application using `yarn create next-app`. Use `--typescript` flag if you plan using Typescript.
 2. Add Arcade to the dependencies. For example, [here](https://github.com/arcade-design/community/blob/master/examples/next-starter/package.json#L6) we use it from an package in the file system.
-3. Add [next.config.js](./next.config.js) with `next-transpile-modules` and `arcade-next-css` to allow using ESM components and CSS modules.
-4. Add Arcade component to your page. You can use [index.tsx](https://github.com/arcade-design/community/blob/master/examples/next-starter/pages/index.tsx) as an example starting page.
-5. Run `yarn dev` to start the application.
+3. Add Arcade js and css bundles. You can use [index.tsx](https://github.com/arcade-design/community/blob/master/examples/next-starter/pages/index.tsx) as an example starting page.
+
+```
+import { Arcade, Button } from "arcade/bundle";
+import "arcade/bundle.css";
+```
+
+4. Run `yarn dev` to start the application.
 
 ### Additional information
 
