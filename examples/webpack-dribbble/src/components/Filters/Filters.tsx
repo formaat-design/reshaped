@@ -35,15 +35,15 @@ const Filters = () => {
         <Frame align="center">
           <Tabs variant="pills">
             <Tabs.List>
-              <Tabs.Item id="all">All</Tabs.Item>
-              <Tabs.Item id="animation">Animation</Tabs.Item>
-              <Tabs.Item id="branding">Branding</Tabs.Item>
-              <Tabs.Item id="illustration">Illustration</Tabs.Item>
-              <Tabs.Item id="mobile">Mobile</Tabs.Item>
-              <Tabs.Item id="print">Print</Tabs.Item>
-              <Tabs.Item id="product-design">Product design</Tabs.Item>
-              <Tabs.Item id="typography">Typography</Tabs.Item>
-              <Tabs.Item id="web-design">Web design</Tabs.Item>
+              <Tabs.Item value="all">All</Tabs.Item>
+              <Tabs.Item value="animation">Animation</Tabs.Item>
+              <Tabs.Item value="branding">Branding</Tabs.Item>
+              <Tabs.Item value="illustration">Illustration</Tabs.Item>
+              <Tabs.Item value="mobile">Mobile</Tabs.Item>
+              <Tabs.Item value="print">Print</Tabs.Item>
+              <Tabs.Item value="product-design">Product design</Tabs.Item>
+              <Tabs.Item value="typography">Typography</Tabs.Item>
+              <Tabs.Item value="web-design">Web design</Tabs.Item>
             </Tabs.List>
           </Tabs>
         </Frame>

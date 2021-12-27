@@ -1,3 +1,3 @@
-const config = require("arcade/postcss");
+const postcss = require("arcade/postcss");
 
-module.exports = config.full;
+module.exports = postcss.config;

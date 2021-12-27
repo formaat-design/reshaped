@@ -26,7 +26,7 @@ const HeaderActivity = () => {
           <Stack direction="row">
             <Avatar size="smaller" icon={IconCollection} color="primary" />
             <Stack.Item grow>
-              <Text variant="medium2">
+              <Text variant="body-medium-2">
                 <Link href="#" color="inherit" variant="plain">
                   Dmitry Belyaev
                 </Link>{" "}
@@ -42,7 +42,7 @@ const HeaderActivity = () => {
           <Stack direction="row">
             <Avatar size="smaller" icon={IconCollection} color="primary" />
             <Stack.Item grow>
-              <Text variant="medium2">
+              <Text variant="body-medium-2">
                 <Link href="#" color="inherit" variant="plain">
                   Dmitry Belyaev
                 </Link>{" "}

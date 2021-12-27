@@ -85,7 +85,7 @@ const Footer = () => {
               gap={2}
             >
               <Stack.Item>
-                <Text variant="strong2" as="span">
+                <Text variant="body-strong-2" as="span">
                   {data.shotsCount}
                 </Text>{" "}
                 shots dribbbled

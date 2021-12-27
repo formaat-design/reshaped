@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Arcade, Stack, Container, Button, Frame } from "arcade";
-import theme from "themes/dribbble";
+import theme from "themes/dribbble.module.css";
 import shots from "data/shots";
 import Header from "components/Header";
 import Filters from "components/Filters";

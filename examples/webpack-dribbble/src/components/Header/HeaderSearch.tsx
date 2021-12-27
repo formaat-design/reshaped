@@ -9,7 +9,6 @@ const HeaderSearch = (props: T.SearchProps) => {
     <TextField
       name="search"
       placeholder="Search"
-      color="inherit"
       startSlot={<Icon svg={IconSearch} color="neutral-faded" />}
     />
   );
@@ -18,11 +17,11 @@ const HeaderSearch = (props: T.SearchProps) => {
 
   return (
     <>
-      <Hidden till="xl">
+      <Hidden hide={{ s: true, xl: false }}>
         <Frame width="140px">{field}</Frame>
       </Hidden>
 
-      <Hidden till="l" from="xl">
+      <Hidden hide={{ s: true, l: false, xl: true }}>
         <Actionable href="#">
           <Icon svg={IconSearch} color="neutral-faded" />
         </Actionable>

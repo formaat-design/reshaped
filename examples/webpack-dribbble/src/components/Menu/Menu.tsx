@@ -7,9 +7,9 @@ const Menu = (props: T.Props) => {
 
   return (
     <Stack gap={4} align="start">
-      <Text variant="strong2">{title}</Text>
+      <Text variant="body-strong-2">{title}</Text>
       {items.map((item) => (
-        <Text variant="medium2" key={item.title}>
+        <Text variant="body-medium-2" key={item.title}>
           <Link href={item.href} color="inherit" variant="plain">
             {item.title}
           </Link>

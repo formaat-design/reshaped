@@ -7,7 +7,7 @@ import {
   Badge,
   Icon,
   Button,
-  Scrim,
+  Overlay,
   Frame,
 } from "arcade";
 import IconCollection from "icons/Collection";
@@ -22,7 +22,7 @@ const ShotCard = (props: T.Props) => {
   return (
     <Stack gap={2}>
       <Frame borderRadius="medium" overflow="hidden" className={s.root}>
-        <Scrim
+        <Overlay
           position="bottom"
           backgroundSlot={
             <AspectRatio ratio={4 / 3}>
@@ -33,17 +33,17 @@ const ShotCard = (props: T.Props) => {
         >
           <Stack direction="row" align="center">
             <Stack.Item grow>
-              <Text variant="strong1">{title}</Text>
+              <Text variant="body-strong-1">{title}</Text>
             </Stack.Item>
             <Button icon={IconCollection} color="white" elevated />
             <Button icon={IconHeart} color="white" elevated />
           </Stack>
-        </Scrim>
+        </Overlay>
       </Frame>
 
       <Stack direction="row" align="center" gap={2}>
         <Avatar src={user.logoUrl} size="smaller" />
-        <Text variant="strong2">{user.name}</Text>
+        <Text variant="body-strong-2">{user.name}</Text>
         <Stack.Item grow>
           {user.accountType && (
             <Badge variant="faded">{user.accountType}</Badge>
@@ -53,7 +53,7 @@ const ShotCard = (props: T.Props) => {
         <Stack.Item>
           <Stack direction="row" gap={1} align="center">
             <Icon svg={IconHeart} size={3} color="neutral-faded" />
-            <Text variant="caption1" color="neutral-faded">
+            <Text variant="caption-1" color="neutral-faded">
               {likesCount}
             </Text>
           </Stack>
@@ -62,7 +62,7 @@ const ShotCard = (props: T.Props) => {
         <Stack.Item>
           <Stack direction="row" gap={2} align="center">
             <Icon svg={IconEye} size={3} color="neutral-faded" />
-            <Text variant="caption1" color="neutral-faded">
+            <Text variant="caption-1" color="neutral-faded">
               {viewsCount / 1000}k
             </Text>
           </Stack>

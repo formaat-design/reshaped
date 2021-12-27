@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Actionable,
-  Drawer,
+  Modal,
   Icon,
   Dismissible,
   Stack,
@@ -9,7 +9,6 @@ import {
   Divider,
   Avatar,
   Text,
-  Button,
   Frame,
   Link,
 } from "arcade";
@@ -26,12 +25,12 @@ const HeaderMobileMenu = () => {
         <Icon svg={IconMenu} size={4} color="neutral-faded" />
       </Actionable>
 
-      <Drawer
+      <Modal
         active={menuActive}
         onClose={() => setMenuActive(false)}
         position="start"
-        size={400}
-        padded={false}
+        size="400px"
+        padding={0}
       >
         <Frame padding={4}>
           <Stack>
@@ -57,7 +56,7 @@ const HeaderMobileMenu = () => {
             />
           }
         >
-          <Text variant="strong1">Dmitry Belyaev</Text>
+          <Text variant="body-strong-1">Dmitry Belyaev</Text>
         </MenuItem>
 
         <Frame padding={4}>
@@ -93,7 +92,7 @@ const HeaderMobileMenu = () => {
             Sign out
           </Link>
         </Frame>
-      </Drawer>
+      </Modal>
     </>
   );
 };

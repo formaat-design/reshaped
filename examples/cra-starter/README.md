@@ -1,16 +1,46 @@
-## Arcade - Create React App starter
+# Getting Started with Create React App
 
-This is a starter example for [Arcade](https://arcade.design) using Create React App.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Manual installation steps
+## Available Scripts
 
-If you don't want to just copy this example, but rather install it manually, it can be done in a following way:
+In the project directory, you can run:
 
-1. Create a new React application using `npx create-react-app my-app`. Use `--template typescript` if you plan using Typescript.
-2. Add Arcade to the dependencies. For example, [here](https://github.com/arcade-design/community/blob/master/examples/cra-starter/package.json#L6) we use it from an package in the file system.
-3. Add Arcade component to your page. You can use [App.tsx](https://github.com/arcade-design/community/blob/master/examples/cra-starter/src/App.tsx) as an example starting page.
-4. Run `yarn start` to start the application.
+### `npm start`
 
-### Additional information
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-This will get you going for a simple setup with the default loaders provided by Create React App. If you also want to use custom media queries provided by Arcade in you product CSS code - you can use a tool like [Craco](https://github.com/gsoft-inc/craco) that lets you customize your postcss.config.js and include plugins provided by Arcade there.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).

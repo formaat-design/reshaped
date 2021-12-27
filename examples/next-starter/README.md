@@ -1,33 +1,34 @@
-## Arcade - Create React App starter
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-This is a starter example for [Arcade](https://arcade.design) using NextJS.
+## Getting Started
 
-### Manual installation steps
+First, run the development server:
 
-If you don't want to just copy this example, but rather install it manually, it can be done in a following way:
-
-1. Create a new React application using `yarn create next-app`. Use `--typescript` flag if you plan using Typescript.
-2. Add Arcade to the dependencies. For example, [here](https://github.com/arcade-design/community/blob/master/examples/next-starter/package.json#L6) we use it from an package in the file system.
-3. Add Arcade js and css bundles. You can use [index.tsx](https://github.com/arcade-design/community/blob/master/examples/next-starter/pages/index.tsx) as an example starting page.
-
-```
-import { Arcade, Button } from "arcade/bundle";
-import "arcade/bundle.css";
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-4. Run `yarn dev` to start the application.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Additional information
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-You can use this codebase as an example of how to use Arcade together with NextJS.
-Arcade is relying on vanilla CSS and a minimal set of PostCSS plugins, heavily using modern features like CSS variables for implementing dynamic styling.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-This means that you won't need any runtime dependency for writing CSS in your product.
-However, since we want to provide features like CSS tree-shaking, we don't ship our CSS as a single bundle with styles from all components.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-NextJS is currently working on supporting that: https://github.com/vercel/next.js/discussions/27953.
-Meanwhile CSS support can be provided by using `next-transpile-modules` together with `arcade-next-css` plugin that's responsible for webpack config customization.
+## Learn More
 
-When using multiple routes in development mode, there is also a known issue due to the css tree-shaking.
-While it's in development for NextJS, there is a known workaround for development mode: https://github.com/vercel/next-plugins/issues/263#issuecomment-751485616.
-Note that it works without errors for production with no workarounds required.
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -25,7 +25,7 @@ const HeaderNavItem = (props: T.NavItemProps) => {
     >
       <Stack gap={1}>
         <Stack direction="row" gap={2} align="center">
-          <Text variant="strong2" className={s.title}>
+          <Text variant="body-strong-2" className={s.title}>
             {title}
           </Text>
           {badge && (
@@ -34,7 +34,7 @@ const HeaderNavItem = (props: T.NavItemProps) => {
             </Badge>
           )}
         </Stack>
-        <Text variant="body2" as="p">
+        <Text variant="body-2" as="p">
           {description}
         </Text>
       </Stack>

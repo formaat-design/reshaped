@@ -25,7 +25,7 @@ const Header = () => {
   return (
     <ActionBar position="top" size="large">
       <Stack direction="row" gap={6} align="center">
-        <Hidden from="l">
+        <Hidden hide={{ s: false, l: true }}>
           <HeaderMobileMenu />
         </Hidden>
 
@@ -37,13 +37,13 @@ const Header = () => {
           </Frame>
         </Stack.Item>
 
-        <Hidden till="l">
+        <Hidden hide={{ s: true, l: false }}>
           <Stack.Item grow>
             <Stack direction="row" gap={6}>
               {header.map((navItem) => {
                 if (!navItem.items) {
                   return (
-                    <Text variant="medium2" key={navItem.title}>
+                    <Text variant="body-medium-2" key={navItem.title}>
                       <Link variant="plain" color="inherit">
                         {navItem.title}
                       </Link>
@@ -57,11 +57,11 @@ const Header = () => {
                     key={navItem.title}
                     position="bottom-start"
                     width="600px"
-                    padded={false}
+                    padding={0}
                   >
                     <Popover.Trigger>
                       {(attributes) => (
-                        <Text variant="medium2" key={navItem.title}>
+                        <Text variant="body-medium-2" key={navItem.title}>
                           <Link
                             variant="plain"
                             color="inherit"
@@ -111,11 +111,11 @@ const Header = () => {
         <HeaderWorkPreference />
         <HeaderActivity />
 
-        <Hidden till="l">
+        <Hidden hide={{ s: true, l: false }}>
           <HeaderProfile />
         </Hidden>
 
-        <Hidden till="l">
+        <Hidden hide={{ s: true, l: false }}>
           <Button color="primary" href="#">
             Upload
           </Button>

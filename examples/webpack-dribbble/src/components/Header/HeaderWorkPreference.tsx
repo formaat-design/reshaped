@@ -34,14 +34,14 @@ const HeaderWorkPreference = () => {
           <Stack direction="row">
             <Text
               color={available ? "neutral-faded" : "primary"}
-              variant="medium2"
+              variant="body-medium-2"
             >
               Not available
             </Text>
             <Switch name="availability" onChange={handleChange} />
             <Text
               color={available ? "primary" : "neutral-faded"}
-              variant="medium2"
+              variant="body-medium-2"
             >
               Available for work
             </Text>

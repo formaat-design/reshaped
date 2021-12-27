@@ -1,0 +1,11 @@
+.customComponent {
+  background: var(--arcade-color-background-positive-faded);
+  padding: var(--arcade-unit-x2);
+  border-radius: var(--arcade-unit-radius-small);
+}
+
+@media (--arcade-viewport-l) {
+  .customComponent {
+    background: var(--arcade-color-background-critical-faded);
+  }
+}
