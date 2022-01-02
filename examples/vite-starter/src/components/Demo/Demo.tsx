@@ -1,8 +1,6 @@
-import { Arcade, Button, Container, Frame, Text, Stack } from "arcade/bundle";
+import { Arcade, Button, Container, Frame, Text, Stack } from "arcade";
 import theme from "arcade/themes/arcade.module.css";
 import s from "./Demo.module.css";
-
-console.log(theme, s);
 
 const Demo = () => {
   return (

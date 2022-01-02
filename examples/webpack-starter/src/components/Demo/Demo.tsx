@@ -3,8 +3,6 @@ import { Arcade, Button, Container, Frame, Text, Stack } from "arcade";
 import * as theme from "arcade/themes/arcade.module.css";
 import * as s from "./Demo.module.css";
 
-console.log(theme, s);
-
 const Demo = () => {
   return (
     <Arcade theme={theme}>
