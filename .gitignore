@@ -1,3 +1,8 @@
+## Keep examples ignored while they are WIP
+/examples/remix-starter
+/examples/parcel-starter
+/examples/gatsby-starter
+
 vendor/*.tgz
 .DS_Store
 node_modules
