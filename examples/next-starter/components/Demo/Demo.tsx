@@ -1,7 +1,7 @@
 // Components JS and CSS are imported from arcade/bundle and arcade/bundle.css
 import { Arcade, Button, Container, Frame, Text, Stack } from "arcade/bundle";
 import "arcade/bundle.css";
-import theme from "arcade/themes/arcade.module.css";
+import theme from "arcade/themes/arcade/theme.module.css";
 import s from "./Demo.module.css";
 
 const Demo = () => {
@@ -14,8 +14,8 @@ const Demo = () => {
             <Text variant="display-2">Welcome to Arcade</Text>
             <Text variant="featured-2" align="center">
               Arcade is a professionally crafted design system for high‑quality
-              product development. In this example repository we're using it
-              together with Vite.
+              product development. In this example repository we&apos;re using
+              it together with Vite.
             </Text>
             <Stack.Item gap={6}>
               <Button

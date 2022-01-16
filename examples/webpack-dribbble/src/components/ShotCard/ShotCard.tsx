@@ -42,7 +42,7 @@ const ShotCard = (props: T.Props) => {
       </Frame>
 
       <Stack direction="row" align="center" gap={2}>
-        <Avatar src={user.logoUrl} size="smaller" />
+        <Avatar src={user.logoUrl} size={6} />
         <Text variant="body-strong-2">{user.name}</Text>
         <Stack.Item grow>
           {user.accountType && (

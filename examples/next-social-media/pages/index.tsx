@@ -18,7 +18,7 @@ import {
   useTheme,
 } from "arcade/bundle";
 import "arcade/bundle.css";
-import theme from "arcade/themes/arcade.module.css";
+import theme from "arcade/themes/arcade/theme.module.css";
 import IconMore from "../icons/More";
 import IconBookmark from "../icons/Bookmark";
 import IconCloseSquare from "../icons/CloseSquare";
@@ -146,7 +146,7 @@ const PostHeader = () => {
           {(attributes) => (
             <Actionable attributes={attributes}>
               <Avatar
-                size="small"
+                size={8}
                 src="https://pbs.twimg.com/profile_images/1096029593335676929/OZbE9ZXV_400x400.png"
               />
             </Actionable>

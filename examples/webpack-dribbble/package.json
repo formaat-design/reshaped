@@ -6,10 +6,10 @@
   "scripts": {
     "start": "webpack serve",
     "build": "webpack",
-    "build:themes": "tsc -p tsconfig.theme.json && arcade theming dist/themes/index.js -o src/themes"
+    "build:themes": "arcade theming -o src/themes"
   },
   "dependencies": {
-    "arcade": "../../vendor/arcade-react-v0.17.0.tgz",
+    "arcade": "../../vendor/arcade-react-v0.18.0.tgz",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

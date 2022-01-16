@@ -500,9 +500,9 @@ anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-arcade@../../vendor/arcade-react-v0.17.0.tgz:
-  version "0.17.0"
-  resolved "../../vendor/arcade-react-v0.17.0.tgz#19c339fccade27e9417fde7dba37c1e7a6241ce4"
+arcade@../../vendor/arcade-react-v0.18.0.tgz:
+  version "0.18.0"
+  resolved "../../vendor/arcade-react-v0.18.0.tgz#7df2b4e5787f0753a0b15ee03e01118d6bd26b54"
   dependencies:
     autoprefixer "10.3.7"
     chalk "4.1.1"

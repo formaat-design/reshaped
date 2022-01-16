@@ -11,7 +11,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "arcade": "../../vendor/arcade-react-v0.17.0.tgz",
+    "arcade": "../../vendor/arcade-react-v0.18.0.tgz",
     "postcss": "^8.4.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

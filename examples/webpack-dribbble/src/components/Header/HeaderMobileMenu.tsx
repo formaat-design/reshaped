@@ -52,7 +52,7 @@ const HeaderMobileMenu = () => {
           startSlot={
             <Avatar
               src="https://cdn.dribbble.com/users/226667/avatars/normal/4c24342634cf5c822f3f23cfd803a66b.jpg?1461685850"
-              size="small"
+              size={8}
             />
           }
         >

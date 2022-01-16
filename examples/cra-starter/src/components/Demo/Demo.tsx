@@ -1,5 +1,5 @@
 import { Arcade, Button, Container, Frame, Text, Stack } from "arcade";
-import theme from "arcade/themes/arcade.module.css";
+import theme from "arcade/themes/arcade/theme.module.css";
 import s from "./Demo.module.css";
 
 const Demo = () => {
