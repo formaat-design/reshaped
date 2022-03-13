@@ -11,7 +11,7 @@ import {
   Text,
   Frame,
   Link,
-} from "arcade";
+} from "reshaped";
 import IconMenu from "icons/Menu";
 import header from "data/header";
 import HeaderSearch from "./HeaderSearch";

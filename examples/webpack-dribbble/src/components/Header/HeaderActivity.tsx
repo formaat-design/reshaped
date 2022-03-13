@@ -1,5 +1,5 @@
 import React from "react";
-import { Popover, Icon, Stack, Avatar, Text, Button, Link } from "arcade";
+import { Popover, Icon, Stack, Avatar, Text, Button, Link } from "reshaped";
 import IconActivity from "icons/Activity";
 import IconCollection from "icons/Collection";
 

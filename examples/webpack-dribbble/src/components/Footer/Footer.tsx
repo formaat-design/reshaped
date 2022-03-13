@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Frame, Stack, Text, Icon, Actionable } from "arcade";
+import { Container, Frame, Stack, Text, Icon, Actionable } from "reshaped";
 import data from "data/footer";
 import Menu from "components/Menu";
 import Logo from "icons/Logo";
@@ -12,7 +12,7 @@ import IconLogoPinterest from "icons/LogoPinterest";
 const Footer = () => {
   return (
     <Frame backgroundColor="neutral-faded" padding={6}>
-      <Container size="larger">
+      <Container width="1400px">
         <Stack gap={6} divided>
           <Stack.Item>
             <Stack gap={{ s: 6, xl: 4 }} direction="row">

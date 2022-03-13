@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, DropdownMenu, Button, Tabs, Frame } from "arcade";
+import { Stack, DropdownMenu, Button, Tabs, Frame } from "reshaped";
 import IconChevronDown from "icons/ChevronDown";
 import IconFilter from "icons/Filter";
 

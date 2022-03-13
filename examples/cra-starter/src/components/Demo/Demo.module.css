@@ -1,18 +1,18 @@
 .customComponent {
-  background: var(--arcade-color-background-positive-faded);
-  padding: var(--arcade-unit-x2);
-  border-radius: var(--arcade-unit-radius-small);
+  background: var(--rs-color-background-positive-faded);
+  padding: var(--rs-unit-x2);
+  border-radius: var(--rs-unit-radius-small);
 }
 
 /* 
-Create react app won't support custom media queries since it doesn't work with custom postcss configs.
-However you can still use responsive syntax of Arcade components.
+Create React App won't support custom media queries since it doesn't work with custom postcss configs.
+However you can still use responsive syntax of Reshaped components.
 
-In case you need support for Arcade media queries values directly in your CSS, 
+In case you need support for Reshaped media queries values directly in your CSS, 
 you can use tools like Craco that allow customizing CRA setup.
 */
-@media (--arcade-viewport-l) {
+@media (--rs-viewport-l) {
   .customComponent {
-    background: var(--arcade-color-background-critical-faded);
+    background: var(--rs-color-background-critical-faded);
   }
 }

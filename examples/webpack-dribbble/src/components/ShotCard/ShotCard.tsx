@@ -9,7 +9,7 @@ import {
   Button,
   Overlay,
   Frame,
-} from "arcade";
+} from "reshaped";
 import IconCollection from "icons/Collection";
 import IconHeart from "icons/Heart";
 import IconEye from "icons/Eye";

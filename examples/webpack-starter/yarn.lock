@@ -490,16 +490,6 @@ anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-arcade@../../vendor/arcade-react-v0.18.0.tgz:
-  version "0.18.0"
-  resolved "../../vendor/arcade-react-v0.18.0.tgz#7df2b4e5787f0753a0b15ee03e01118d6bd26b54"
-  dependencies:
-    autoprefixer "10.3.7"
-    chalk "4.1.1"
-    commander "8.0.0"
-    cssnano "5.0.8"
-    postcss-custom-media "8.0.0"
-
 array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
@@ -2749,6 +2739,16 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+
+reshaped@../../vendor/beta.tgz:
+  version "0.18.0"
+  resolved "../../vendor/beta.tgz#8e5273eca47cfbd165c97d3bd848e805bb93cd51"
+  dependencies:
+    autoprefixer "10.3.7"
+    chalk "4.1.1"
+    commander "8.0.0"
+    cssnano "5.0.8"
+    postcss-custom-media "8.0.0"
 
 resolve-cwd@^3.0.0:
   version "3.0.0"

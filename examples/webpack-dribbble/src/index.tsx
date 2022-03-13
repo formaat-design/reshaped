@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Arcade, Stack, Container, Button, Frame } from "arcade";
-import theme from "themes/dribbble/theme.module.css";
+import { Reshaped, Stack, Container, Button, Frame } from "reshaped";
+import "themes/dribbble/theme.css";
 import shots from "data/shots";
 import Header from "components/Header";
 import Filters from "components/Filters";
@@ -10,12 +10,12 @@ import Footer from "components/Footer";
 
 const App = () => {
   return (
-    <Arcade theme={theme}>
+    <Reshaped theme="dribbble">
       <Stack gap={6}>
         <Header />
 
         <Stack.Item>
-          <Container size="larger">
+          <Container width="1400px">
             <Stack gap={6}>
               <Filters />
 
@@ -36,7 +36,7 @@ const App = () => {
 
         <Footer />
       </Stack>
-    </Arcade>
+    </Reshaped>
   );
 };
 

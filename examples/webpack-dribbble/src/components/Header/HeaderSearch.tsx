@@ -1,5 +1,5 @@
 import React from "react";
-import { Frame, Icon, TextField, Hidden, Actionable } from "arcade";
+import { Frame, Icon, TextField, Hidden, Actionable } from "reshaped";
 import IconSearch from "icons/Search";
 import * as T from "./Header.types";
 

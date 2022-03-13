@@ -1,5 +1,5 @@
 import React from "react";
-import { MenuItem, Text, Icon, Stack, Badge, Button } from "arcade";
+import { MenuItem, Text, Icon, Stack, Badge } from "reshaped";
 import IconArrowRight from "icons/ArrowRight";
 import * as T from "./Header.types";
 import s from "./Header.module.css";

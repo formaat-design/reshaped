@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Stack, Text } from "arcade";
+import { Link, Stack, Text } from "reshaped";
 import * as T from "./Menu.types";
 
 const Menu = (props: T.Props) => {

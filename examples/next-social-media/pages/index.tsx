@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import {
-  Arcade,
+  Reshaped,
   Container,
   Card,
   Stack,
@@ -16,9 +16,9 @@ import {
   Popover,
   Icon,
   useTheme,
-} from "arcade/bundle";
-import "arcade/bundle.css";
-import theme from "arcade/themes/arcade/theme.module.css";
+} from "reshaped/bundle";
+import "reshaped/bundle.css";
+import "reshaped/themes/reshaped/theme.css";
 import IconMore from "../icons/More";
 import IconBookmark from "../icons/Bookmark";
 import IconCloseSquare from "../icons/CloseSquare";
@@ -82,7 +82,7 @@ const AccountInformation = () => (
   <Stack gap={3}>
     <Stack direction="row" gap={4}>
       <Avatar
-        size="large"
+        size={8}
         src="https://pbs.twimg.com/profile_images/1096029593335676929/OZbE9ZXV_400x400.png"
       />
 
@@ -241,13 +241,13 @@ const PostCard = () => {
 
 const Home: NextPage = () => {
   return (
-    <Arcade theme={theme}>
+    <Reshaped theme="reshaped">
       <Frame justify="center" height="100vh">
-        <Container size="smallest">
+        <Container width="600px">
           <PostCard />
         </Container>
       </Frame>
-    </Arcade>
+    </Reshaped>
   );
 };
 

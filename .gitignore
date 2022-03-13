@@ -1,6 +1,5 @@
 ## Keep examples ignored while they are WIP
 /examples/remix-starter
-/examples/parcel-starter
 
 vendor/*.tgz
 .DS_Store

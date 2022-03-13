@@ -7,7 +7,7 @@ import {
   Badge,
   Stack,
   MenuItem,
-} from "arcade";
+} from "reshaped";
 import IconHeart from "icons/Heart";
 import IconCollection from "icons/Collection";
 

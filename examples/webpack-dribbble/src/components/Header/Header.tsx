@@ -9,7 +9,7 @@ import {
   Hidden,
   Link,
   Text,
-} from "arcade";
+} from "reshaped";
 import Logo from "icons/Logo";
 import Menu from "components/Menu";
 import header from "data/header";

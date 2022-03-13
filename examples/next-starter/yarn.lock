@@ -384,16 +384,6 @@ anymatch@~3.1.1:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-arcade@../../vendor/arcade-react-v0.18.0.tgz:
-  version "0.18.0"
-  resolved "../../vendor/arcade-react-v0.18.0.tgz#7df2b4e5787f0753a0b15ee03e01118d6bd26b54"
-  dependencies:
-    autoprefixer "10.3.7"
-    chalk "4.1.1"
-    commander "8.0.0"
-    cssnano "5.0.8"
-    postcss-custom-media "8.0.0"
-
 argparse@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
@@ -2898,6 +2888,16 @@ regexpp@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-3.2.0.tgz#0425a2768d8f23bad70ca4b90461fa2f1213e1b2"
   integrity sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==
+
+reshaped@../../vendor/beta.tgz:
+  version "0.18.0"
+  resolved "../../vendor/beta.tgz#8e5273eca47cfbd165c97d3bd848e805bb93cd51"
+  dependencies:
+    autoprefixer "10.3.7"
+    chalk "4.1.1"
+    commander "8.0.0"
+    cssnano "5.0.8"
+    postcss-custom-media "8.0.0"
 
 resolve-from@^4.0.0:
   version "4.0.0"

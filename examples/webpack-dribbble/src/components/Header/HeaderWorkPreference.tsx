@@ -7,7 +7,7 @@ import {
   Stack,
   Text,
   Button,
-} from "arcade";
+} from "reshaped";
 import IconWork from "icons/Work";
 
 const HeaderWorkPreference = () => {

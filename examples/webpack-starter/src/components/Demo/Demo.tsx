@@ -1,26 +1,26 @@
 import React from "react";
-import { Arcade, Button, Container, Frame, Text, Stack } from "arcade";
-import * as theme from "arcade/themes/arcade/theme.module.css";
-import * as s from "./Demo.module.css";
+import { Reshaped, Button, Container, Frame, Text, Stack } from "reshaped";
+import "reshaped/themes/reshaped/theme.css";
+import s from "./Demo.module.css";
 
 const Demo = () => {
   return (
-    <Arcade theme={theme}>
+    <Reshaped theme="reshaped">
       <Frame align="center" justify="center" height="100vh">
-        <Container size="smallest">
+        <Container width="800px">
           <Stack align="center">
             <Text variant="display-1">🎉</Text>
-            <Text variant="display-2">Welcome to Arcade</Text>
+            <Text variant="display-2">Welcome to Reshaped</Text>
             <Text variant="featured-2" align="center">
-              Arcade is a professionally crafted design system for high‑quality
-              product development. In this example repository we're using it
-              together with Webpack.
+              Reshaped is a professionally crafted design system for everyday
+              product development made to match your brand. In this example
+              repository we're using it together with Webpack.
             </Text>
             <Stack.Item gap={6}>
               <Button
                 size="large"
                 color="primary"
-                href="https://arcade.design"
+                href="https://reshaped.so"
                 attributes={{ target: "_blank" }}
               >
                 Check our website
@@ -32,7 +32,7 @@ const Demo = () => {
           </Stack>
         </Container>
       </Frame>
-    </Arcade>
+    </Reshaped>
   );
 };
 
