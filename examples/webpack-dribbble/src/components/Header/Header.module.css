@@ -1,23 +1,23 @@
 .logo:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 .navItem:hover .icon {
-    opacity: 1;
-    transform: translateX(0);
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .navItem:hover .title {
-    color: var(--arcade-color-foreground-primary);
+  color: var(--rs-color-foreground-primary);
 }
 
 .icon {
-    opacity: 0;
-    transform: translateX(calc(var(--arcade-unit-x1) * -1));
-    transition: var(--arcade-duration-fast) var(--arcade-easing-standard);
-    transition-property: opacity, transform;
+  opacity: 0;
+  transform: translateX(calc(var(--rs-unit-x1) * -1));
+  transition: var(--rs-duration-fast) var(--rs-easing-standard);
+  transition-property: opacity, transform;
 }
 
 .image {
-    width: var(--arcade-unit-x8);
+  width: var(--rs-unit-x8);
 }

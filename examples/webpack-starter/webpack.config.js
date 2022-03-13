@@ -50,7 +50,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Arcade Webpack Example",
+      title: "Reshaped Webpack Example",
       template: path.resolve(__dirname, "src/index.html"),
     }),
     new MiniCssExtractPlugin(),

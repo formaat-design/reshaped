@@ -63,7 +63,7 @@ module.exports = {
       patterns: [{ from: "src/public", to: "public" }],
     }),
     new HtmlWebpackPlugin({
-      title: "Arcade Dribbble Demo",
+      title: "Reshaped Dribbble Demo",
       template: path.resolve(__dirname, "src/index.html"),
     }),
     new MiniCssExtractPlugin(),
