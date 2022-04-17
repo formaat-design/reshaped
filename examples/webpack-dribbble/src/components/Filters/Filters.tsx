@@ -10,7 +10,7 @@ const Filters = () => {
         <DropdownMenu.Trigger>
           {(attributes) => (
             <Button
-              variant="outlined"
+              variant="outline"
               attributes={attributes}
               iconPosition="end"
               icon={IconChevronDown}
@@ -49,7 +49,7 @@ const Filters = () => {
         </Frame>
       </Stack.Item>
 
-      <Button variant="outlined" icon={IconFilter}>
+      <Button variant="outline" icon={IconFilter}>
         Filters
       </Button>
     </Stack>

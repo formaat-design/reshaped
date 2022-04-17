@@ -9,7 +9,7 @@
     "build:themes": "reshaped theming -o src/themes"
   },
   "dependencies": {
-    "reshaped": "../../vendor/beta-2.tgz",
+    "reshaped": "../../vendor/reshaped-v0.21-beta.tgz",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

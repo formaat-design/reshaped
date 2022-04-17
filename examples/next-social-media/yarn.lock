@@ -2874,9 +2874,9 @@ regexpp@^3.2.0:
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-3.2.0.tgz#0425a2768d8f23bad70ca4b90461fa2f1213e1b2"
   integrity sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==
 
-reshaped@../../vendor/beta-2.tgz:
-  version "0.18.0"
-  resolved "../../vendor/beta-2.tgz#aeea662edf67ecaa8f2cfb1b0cf2f7749571750b"
+reshaped@../../vendor/reshaped-v0.21-beta.tgz:
+  version "0.20.0"
+  resolved "../../vendor/reshaped-v0.21-beta.tgz#615b8c8ff6ccbc6f8f6a196d1eba8625b69cc460"
   dependencies:
     autoprefixer "10.3.7"
     chalk "4.1.1"

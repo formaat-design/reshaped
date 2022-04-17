@@ -26,7 +26,7 @@ const HeaderProfile = () => {
       </Popover.Trigger>
       <Popover.Content>
         <Stack>
-          <Button variant="outlined" fullWidth>
+          <Button variant="outline" fullWidth>
             <Stack direction="row" align="center" gap={2}>
               <Badge color="primary">Pro</Badge>
               Resume Subscription
