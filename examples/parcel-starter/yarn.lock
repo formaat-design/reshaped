@@ -1959,9 +1959,9 @@ regenerator-runtime@^0.13.7:
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
   integrity sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
 
-reshaped@../../vendor/reshaped-v0.21-beta.tgz:
-  version "0.20.0"
-  resolved "../../vendor/reshaped-v0.21-beta.tgz#615b8c8ff6ccbc6f8f6a196d1eba8625b69cc460"
+reshaped@../../vendor/reshaped-react-v1.0.0.tgz:
+  version "1.0.0"
+  resolved "../../vendor/reshaped-react-v1.0.0.tgz#9aa0d2f7cf3c8415c52094c5ab124709f7dceb42"
   dependencies:
     autoprefixer "10.3.7"
     chalk "4.1.1"

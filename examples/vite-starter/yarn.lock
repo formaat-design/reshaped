@@ -1172,9 +1172,9 @@ react@^17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
-reshaped@../../vendor/reshaped-v0.21-beta.tgz:
-  version "0.20.0"
-  resolved "../../vendor/reshaped-v0.21-beta.tgz#615b8c8ff6ccbc6f8f6a196d1eba8625b69cc460"
+reshaped@../../vendor/reshaped-react-v1.0.0.tgz:
+  version "1.0.0"
+  resolved "../../vendor/reshaped-react-v1.0.0.tgz#9aa0d2f7cf3c8415c52094c5ab124709f7dceb42"
   dependencies:
     autoprefixer "10.3.7"
     chalk "4.1.1"

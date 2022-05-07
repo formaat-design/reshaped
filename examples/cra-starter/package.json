@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "reshaped": "../../vendor/reshaped-v0.21-beta.tgz",
+    "reshaped": "../../vendor/reshaped-react-v1.0.0.tgz",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",

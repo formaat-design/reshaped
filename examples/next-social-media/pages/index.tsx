@@ -16,8 +16,7 @@ import {
   Popover,
   Icon,
   useTheme,
-} from "reshaped/bundle";
-import "reshaped/bundle.css";
+} from "reshaped";
 import "reshaped/themes/reshaped/theme.css";
 import IconMore from "../icons/More";
 import IconBookmark from "../icons/Bookmark";

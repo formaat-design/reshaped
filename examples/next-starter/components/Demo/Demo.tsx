@@ -1,11 +1,4 @@
-import {
-  Reshaped,
-  Button,
-  Container,
-  Frame,
-  Text,
-  Stack,
-} from "reshaped/bundle";
+import { Reshaped, Button, Container, Frame, Text, Stack } from "reshaped";
 import s from "./Demo.module.css";
 
 const Demo = () => {

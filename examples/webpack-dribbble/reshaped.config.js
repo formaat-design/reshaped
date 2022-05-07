@@ -6,7 +6,7 @@ const config = {
       color: {
         backgroundPrimary: { hex: "#ea4c89" },
         backgroundPrimaryFaded: { hex: "#ffdeeb" },
-        backgroundPrimaryHighlighted: { hex: "#f082ac" },
+        backgroundPrimaryHighlighted: { hex: "#d04077" },
         foregroundPrimary: { hex: "#ea4c89" },
         borderPrimary: { hex: "#ea4c89" },
       },
