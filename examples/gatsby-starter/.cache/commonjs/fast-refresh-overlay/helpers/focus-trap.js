@@ -1284,7 +1284,9 @@ function findIndex(array, callback) {
 function getContentDocument(node) {
   try {
     // works on <object> and <iframe>
-    return node.contentDocument || node.contentWindow && node.contentWindow.document || node.getSVGDocument && node.getSVGDocument() || null;
+    return node.contentDocument || // works on <object> and <iframe>
+    node.contentWindow && node.contentWindow.document || // works on <object> and <iframe> that contain SVG
+    node.getSVGDocument && node.getSVGDocument() || null;
   } catch (e) {
     // SecurityError: Failed to read the 'contentDocument' property from 'HTMLObjectElement'
     // also IE may throw member not found exception e.g. on <object type="image/png">
@@ -2003,7 +2005,9 @@ function selector$2() {
   } // https://www.w3.org/TR/html5/editing.html#sequential-focus-navigation-and-the-tabindex-attribute
 
 
-  selector$1 = '' + (supports$6.focusTable ? 'table, td,' : '') + (supports$6.focusFieldset ? 'fieldset,' : '') + // Namespace problems of [xlink:href] explained in https://stackoverflow.com/a/23047888/515124
+  selector$1 = '' + ( // IE11 supports.can focus <table> and <td>
+  supports$6.focusTable ? 'table, td,' : '') + ( // IE11 supports.can focus <fieldset>
+  supports$6.focusFieldset ? 'fieldset,' : '') + // Namespace problems of [xlink:href] explained in https://stackoverflow.com/a/23047888/515124
   // svg a[*|href] does not match in IE9, but since we're filtering
   // through is/focusable we can include all <a> from SVG
   'svg a,' + // may behave as 'svg, svg *,' in chrome as *every* svg element with a focus event listener is focusable

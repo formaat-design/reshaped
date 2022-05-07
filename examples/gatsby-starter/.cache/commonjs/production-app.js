@@ -8,8 +8,6 @@ var _apiRunnerBrowser = require("./api-runner-browser");
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
 var _reachRouter = require("@gatsbyjs/reach-router");
 
 var _gatsbyReactRouterScroll = require("gatsby-react-router-scroll");
@@ -32,14 +30,32 @@ var _stripPrefix = _interopRequireDefault(require("./strip-prefix"));
 
 var _matchPaths = _interopRequireDefault(require("$virtual/match-paths.json"));
 
+/* global HAS_REACT_18 */
 // Generated during bootstrap
 const loader = new _loader.ProdLoader(_asyncRequires.default, _matchPaths.default, window.pageData);
 (0, _loader.setLoader)(loader);
 loader.setApiRunner(_apiRunnerBrowser.apiRunner);
+let reactHydrate;
+let reactRender;
+
+if (HAS_REACT_18) {
+  const reactDomClient = require(`react-dom/client`);
+
+  reactRender = (Component, el) => reactDomClient.createRoot(el).render(Component);
+
+  reactHydrate = (Component, el) => reactDomClient.hydrateRoot(el, Component);
+} else {
+  const reactDomClient = require(`react-dom`);
+
+  reactRender = reactDomClient.render;
+  reactHydrate = reactDomClient.hydrate;
+}
+
 window.asyncRequires = _asyncRequires.default;
 window.___emitter = _emitter.default;
 window.___loader = _loader.publicLoader;
 (0, _navigation.init)();
+const reloadStorageKey = `gatsby-reload-compilation-hash-match`;
 (0, _apiRunnerBrowser.apiRunnerAsync)(`onClientEntry`).then(() => {
   // Let plugins register a service worker. The plugin just needs
   // to return true.
@@ -132,9 +148,51 @@ window.___loader = _loader.publicLoader;
     (0, _reachRouter.navigate)(__BASE_PATH__ + pagePath + (!pagePath.includes(`?`) ? browserLoc.search : ``) + browserLoc.hash, {
       replace: true
     });
-  }
+  } // It's possible that sessionStorage can throw an exception if access is not granted, see https://github.com/gatsbyjs/gatsby/issues/34512
+
+
+  const getSessionStorage = () => {
+    try {
+      return sessionStorage;
+    } catch {
+      return null;
+    }
+  };
 
   _loader.publicLoader.loadPage(browserLoc.pathname + browserLoc.search).then(page => {
+    var _page$page;
+
+    const sessionStorage = getSessionStorage();
+
+    if (page !== null && page !== void 0 && (_page$page = page.page) !== null && _page$page !== void 0 && _page$page.webpackCompilationHash && page.page.webpackCompilationHash !== window.___webpackCompilationHash) {
+      // Purge plugin-offline cache
+      if (`serviceWorker` in navigator && navigator.serviceWorker.controller !== null && navigator.serviceWorker.controller.state === `activated`) {
+        navigator.serviceWorker.controller.postMessage({
+          gatsbyApi: `clearPathResources`
+        });
+      } // We have not matching html + js (inlined `window.___webpackCompilationHash`)
+      // with our data (coming from `app-data.json` file). This can cause issues such as
+      // errors trying to load static queries (as list of static queries is inside `page-data`
+      // which might not match to currently loaded `.js` scripts).
+      // We are making attempt to reload if hashes don't match, but we also have to handle case
+      // when reload doesn't fix it (possibly broken deploy) so we don't end up in infinite reload loop
+
+
+      if (sessionStorage) {
+        const isReloaded = sessionStorage.getItem(reloadStorageKey) === `1`;
+
+        if (!isReloaded) {
+          sessionStorage.setItem(reloadStorageKey, `1`);
+          window.location.reload(true);
+          return;
+        }
+      }
+    }
+
+    if (sessionStorage) {
+      sessionStorage.removeItem(reloadStorageKey);
+    }
+
     if (!page || page.status === _loader.PageResourceStatus.Error) {
       const message = `page resources for ${browserLoc.pathname} not found. Not rendering React`; // if the chunk throws an error we want to capture the real error
       // This should help with https://github.com/gatsbyjs/gatsby/issues/19618
@@ -147,7 +205,6 @@ window.___loader = _loader.publicLoader;
       throw new Error(message);
     }
 
-    window.___webpackCompilationHash = page.page.webpackCompilationHash;
     const SiteRoot = (0, _apiRunnerBrowser.apiRunner)(`wrapRootElement`, {
       element: /*#__PURE__*/_react.default.createElement(LocationHandler, null)
     }, /*#__PURE__*/_react.default.createElement(LocationHandler, null), ({
@@ -176,16 +233,20 @@ window.___loader = _loader.publicLoader;
       return /*#__PURE__*/_react.default.createElement(GatsbyRoot, null, SiteRoot);
     };
 
-    const renderer = (0, _apiRunnerBrowser.apiRunner)(`replaceHydrateFunction`, undefined, _reactDom.default.hydrateRoot ? _reactDom.default.hydrateRoot : _reactDom.default.hydrate)[0];
+    const focusEl = document.getElementById(`gatsby-focus-wrapper`); // Client only pages have any empty body so we just do a normal
+    // render to avoid React complaining about hydration mis-matches.
+
+    let defaultRenderer = reactRender;
+
+    if (focusEl && focusEl.children.length) {
+      defaultRenderer = reactHydrate;
+    }
+
+    const renderer = (0, _apiRunnerBrowser.apiRunner)(`replaceHydrateFunction`, undefined, defaultRenderer)[0];
 
     function runRender() {
       const rootElement = typeof window !== `undefined` ? document.getElementById(`___gatsby`) : null;
-
-      if (renderer === _reactDom.default.hydrateRoot) {
-        renderer(rootElement, /*#__PURE__*/_react.default.createElement(App, null));
-      } else {
-        renderer( /*#__PURE__*/_react.default.createElement(App, null), rootElement);
-      }
+      renderer( /*#__PURE__*/_react.default.createElement(App, null), rootElement);
     } // https://github.com/madrobby/zepto/blob/b5ed8d607f67724788ec9ff492be297f64d47dfc/src/zepto.js#L439-L450
     // TODO remove IE 10 support
 

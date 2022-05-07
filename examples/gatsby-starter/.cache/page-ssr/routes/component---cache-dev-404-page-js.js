@@ -133,10 +133,10 @@ module.exports = _setPrototypeOf, module.exports.__esModule = true, module.expor
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "globalHistory": () => (/* binding */ globalHistory),
-/* harmony export */   "navigate": () => (/* binding */ navigate),
 /* harmony export */   "createHistory": () => (/* binding */ createHistory),
-/* harmony export */   "createMemorySource": () => (/* binding */ createMemorySource)
+/* harmony export */   "createMemorySource": () => (/* binding */ createMemorySource),
+/* harmony export */   "globalHistory": () => (/* binding */ globalHistory),
+/* harmony export */   "navigate": () => (/* binding */ navigate)
 /* harmony export */ });
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -333,13 +333,13 @@ var navigate = globalHistory.navigate;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "startsWith": () => (/* binding */ startsWith),
-/* harmony export */   "pick": () => (/* binding */ pick),
-/* harmony export */   "match": () => (/* binding */ match),
-/* harmony export */   "resolve": () => (/* binding */ resolve),
 /* harmony export */   "insertParams": () => (/* binding */ insertParams),
-/* harmony export */   "validateRedirect": () => (/* binding */ validateRedirect),
-/* harmony export */   "shallowCompare": () => (/* binding */ shallowCompare)
+/* harmony export */   "match": () => (/* binding */ match),
+/* harmony export */   "pick": () => (/* binding */ pick),
+/* harmony export */   "resolve": () => (/* binding */ resolve),
+/* harmony export */   "shallowCompare": () => (/* binding */ shallowCompare),
+/* harmony export */   "startsWith": () => (/* binding */ startsWith),
+/* harmony export */   "validateRedirect": () => (/* binding */ validateRedirect)
 /* harmony export */ });
 /* harmony import */ var invariant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! invariant */ "./node_modules/invariant/invariant.js");
 /* harmony import */ var invariant__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(invariant__WEBPACK_IMPORTED_MODULE_0__);
@@ -1100,16 +1100,15 @@ var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
 
 var _reachRouter = __webpack_require__(/*! @gatsbyjs/reach-router */ "./node_modules/@gatsbyjs/reach-router/es/index.js");
 
-var _utils = __webpack_require__(/*! @gatsbyjs/reach-router/lib/utils */ "./node_modules/@gatsbyjs/reach-router/lib/utils.js");
-
 var _parsePath = __webpack_require__(/*! ./parse-path */ "./node_modules/gatsby-link/parse-path.js");
 
 exports.parsePath = _parsePath.parsePath;
-var _excluded = ["to", "getProps", "onClick", "onMouseEnter", "activeClassName", "activeStyle", "innerRef", "partiallyActive", "state", "replace", "_location"];
 
-var isAbsolutePath = function isAbsolutePath(path) {
-  return path === null || path === void 0 ? void 0 : path.startsWith("/");
-};
+var _isLocalLink = __webpack_require__(/*! ./is-local-link */ "./node_modules/gatsby-link/is-local-link.js");
+
+var _rewriteLinkPath = __webpack_require__(/*! ./rewrite-link-path */ "./node_modules/gatsby-link/rewrite-link-path.js");
+
+var _excluded = ["to", "getProps", "onClick", "onMouseEnter", "activeClassName", "activeStyle", "innerRef", "partiallyActive", "state", "replace", "_location"];
 
 function withPrefix(path, prefix) {
   var _ref, _prefix;
@@ -1118,7 +1117,7 @@ function withPrefix(path, prefix) {
     prefix = getGlobalBasePrefix();
   }
 
-  if (!isLocalLink(path)) {
+  if (!(0, _isLocalLink.isLocalLink)(path)) {
     return path;
   }
 
@@ -1140,34 +1139,9 @@ var getGlobalBasePrefix = function getGlobalBasePrefix() {
   return  true ?  true ? "" : 0 : 0;
 };
 
-var isLocalLink = function isLocalLink(path) {
-  return path && !path.startsWith("http://") && !path.startsWith("https://") && !path.startsWith("//");
-};
-
 function withAssetPrefix(path) {
   return withPrefix(path, getGlobalPathPrefix());
 }
-
-function absolutify(path, current) {
-  // If it's already absolute, return as-is
-  if (isAbsolutePath(path)) {
-    return path;
-  }
-
-  return (0, _utils.resolve)(path, current);
-}
-
-var rewriteLinkPath = function rewriteLinkPath(path, relativeTo) {
-  if (typeof path === "number") {
-    return path;
-  }
-
-  if (!isLocalLink(path)) {
-    return path;
-  }
-
-  return isAbsolutePath(path) ? withPrefix(path) : absolutify(path, relativeTo);
-};
 
 var NavLinkPropTypes = {
   activeClassName: _propTypes.default.string,
@@ -1247,7 +1221,7 @@ var GatsbyLink = /*#__PURE__*/function (_React$Component) {
       currentPath = this.props._location.pathname + this.props._location.search;
     }
 
-    var rewrittenPath = rewriteLinkPath(this.props.to, currentPath);
+    var rewrittenPath = (0, _rewriteLinkPath.rewriteLinkPath)(this.props.to, currentPath);
     var parsed = (0, _parsePath.parsePath)(rewrittenPath);
     var newPathName = parsed.pathname + parsed.search; // Prefetch is used to speed up next navigations. When you use it on the current navigation,
     // there could be a race-condition where Chrome uses the stale data instead of waiting for the network to complete
@@ -1317,13 +1291,13 @@ var GatsbyLink = /*#__PURE__*/function (_React$Component) {
         _location = _this$props._location,
         rest = (0, _objectWithoutPropertiesLoose2.default)(_this$props, _excluded);
 
-    if ( true && !isLocalLink(to)) {
+    if ( true && !(0, _isLocalLink.isLocalLink)(to)) {
       console.warn("External link " + to + " was detected in a Link component. Use the Link component only for internal links. See: https://gatsby.dev/internal-links");
     }
 
-    var prefixedTo = rewriteLinkPath(to, _location.pathname);
+    var prefixedTo = (0, _rewriteLinkPath.rewriteLinkPath)(to, _location.pathname);
 
-    if (!isLocalLink(prefixedTo)) {
+    if (!(0, _isLocalLink.isLocalLink)(prefixedTo)) {
       return /*#__PURE__*/_react.default.createElement("a", (0, _extends2.default)({
         href: prefixedTo
       }, rest));
@@ -1394,10 +1368,41 @@ var _default = /*#__PURE__*/_react.default.forwardRef(function (props, ref) {
 exports["default"] = _default;
 
 var navigate = function navigate(to, options) {
-  window.___navigate(rewriteLinkPath(to, window.location.pathname), options);
+  window.___navigate((0, _rewriteLinkPath.rewriteLinkPath)(to, window.location.pathname), options);
 };
 
 exports.navigate = navigate;
+
+/***/ }),
+
+/***/ "./node_modules/gatsby-link/is-local-link.js":
+/*!***************************************************!*\
+  !*** ./node_modules/gatsby-link/is-local-link.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.isLocalLink = void 0;
+// Copied from https://github.com/sindresorhus/is-absolute-url/blob/3ab19cc2e599a03ea691bcb8a4c09fa3ebb5da4f/index.js
+var ABSOLUTE_URL_REGEX = /^[a-zA-Z][a-zA-Z\d+\-.]*?:/;
+
+var isAbsolute = function isAbsolute(path) {
+  return ABSOLUTE_URL_REGEX.test(path);
+};
+
+var isLocalLink = function isLocalLink(path) {
+  if (typeof path !== "string") {
+    return undefined; // TODO(v5): Re-Add TypeError
+    // throw new TypeError(`Expected a \`string\`, got \`${typeof path}\``)
+  }
+
+  return !isAbsolute(path);
+};
+
+exports.isLocalLink = isLocalLink;
 
 /***/ }),
 
@@ -1420,15 +1425,15 @@ function parsePath(path) {
   var hashIndex = pathname.indexOf("#");
 
   if (hashIndex !== -1) {
-    hash = pathname.substr(hashIndex);
-    pathname = pathname.substr(0, hashIndex);
+    hash = pathname.slice(hashIndex);
+    pathname = pathname.slice(0, hashIndex);
   }
 
   var searchIndex = pathname.indexOf("?");
 
   if (searchIndex !== -1) {
-    search = pathname.substr(searchIndex);
-    pathname = pathname.substr(0, searchIndex);
+    search = pathname.slice(searchIndex);
+    pathname = pathname.slice(0, searchIndex);
   }
 
   return {
@@ -1437,6 +1442,122 @@ function parsePath(path) {
     hash: hash === "#" ? "" : hash
   };
 }
+
+/***/ }),
+
+/***/ "./node_modules/gatsby-link/rewrite-link-path.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/gatsby-link/rewrite-link-path.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.rewriteLinkPath = void 0;
+
+var _utils = __webpack_require__(/*! @gatsbyjs/reach-router/lib/utils */ "./node_modules/@gatsbyjs/reach-router/lib/utils.js");
+
+var _applyTrailingSlashOption = __webpack_require__(/*! gatsby-page-utils/apply-trailing-slash-option */ "./node_modules/gatsby-page-utils/dist/apply-trailing-slash-option.js");
+
+var _parsePath2 = __webpack_require__(/*! ./parse-path */ "./node_modules/gatsby-link/parse-path.js");
+
+var _isLocalLink = __webpack_require__(/*! ./is-local-link */ "./node_modules/gatsby-link/is-local-link.js");
+
+var _ = __webpack_require__(/*! . */ "./node_modules/gatsby-link/index.js");
+
+// Specific import to treeshake Node.js stuff
+var isAbsolutePath = function isAbsolutePath(path) {
+  return path === null || path === void 0 ? void 0 : path.startsWith("/");
+};
+
+var getGlobalTrailingSlash = function getGlobalTrailingSlash() {
+  return  true ? "legacy" : 0;
+};
+
+function absolutify(path, current) {
+  // If it's already absolute, return as-is
+  if (isAbsolutePath(path)) {
+    return path;
+  }
+
+  var option = getGlobalTrailingSlash();
+  var absolutePath = (0, _utils.resolve)(path, current);
+
+  if (option === "always" || option === "never") {
+    return (0, _applyTrailingSlashOption.applyTrailingSlashOption)(absolutePath, option);
+  }
+
+  return absolutePath;
+}
+
+var rewriteLinkPath = function rewriteLinkPath(path, relativeTo) {
+  if (typeof path === "number") {
+    return path;
+  }
+
+  if (!(0, _isLocalLink.isLocalLink)(path)) {
+    return path;
+  }
+
+  var _parsePath = (0, _parsePath2.parsePath)(path),
+      pathname = _parsePath.pathname,
+      search = _parsePath.search,
+      hash = _parsePath.hash;
+
+  var option = getGlobalTrailingSlash();
+  var adjustedPath = path;
+
+  if (option === "always" || option === "never") {
+    var output = (0, _applyTrailingSlashOption.applyTrailingSlashOption)(pathname, option);
+    adjustedPath = "" + output + search + hash;
+  }
+
+  return isAbsolutePath(adjustedPath) ? (0, _.withPrefix)(adjustedPath) : absolutify(adjustedPath, relativeTo);
+};
+
+exports.rewriteLinkPath = rewriteLinkPath;
+
+/***/ }),
+
+/***/ "./node_modules/gatsby-page-utils/dist/apply-trailing-slash-option.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/gatsby-page-utils/dist/apply-trailing-slash-option.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.applyTrailingSlashOption = void 0;
+
+// TODO(v5): Remove legacy setting and default to "always"
+var applyTrailingSlashOption = function applyTrailingSlashOption(input, option) {
+  if (option === void 0) {
+    option = "legacy";
+  }
+
+  var hasHtmlSuffix = input.endsWith(".html");
+  if (input === "/") return input;
+
+  if (hasHtmlSuffix) {
+    option = "never";
+  }
+
+  if (option === "always") {
+    return input.endsWith("/") ? input : input + "/";
+  }
+
+  if (option === "never") {
+    return input.endsWith("/") ? input.slice(0, -1) : input;
+  }
+
+  return input;
+};
+
+exports.applyTrailingSlashOption = applyTrailingSlashOption;
 
 /***/ }),
 
@@ -1917,8 +2038,12 @@ Dev404Page.propTypes = {
   custom404: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().element),
   location: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().object)
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dev404Page);
-const pagesQuery = "2704779569";
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dev404Page); // ESLint is complaining about the backslash in regex
+
+/* eslint-disable */
+
+const pagesQuery = "1700995071";
+/* eslint-enable */
 
 /***/ }),
 
@@ -1949,11 +2074,11 @@ const emitter = (0,mitt__WEBPACK_IMPORTED_MODULE_0__["default"])();
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "setMatchPaths": () => (/* binding */ setMatchPaths),
+/* harmony export */   "cleanPath": () => (/* binding */ cleanPath),
 /* harmony export */   "findMatchPath": () => (/* binding */ findMatchPath),
-/* harmony export */   "grabMatchParams": () => (/* binding */ grabMatchParams),
 /* harmony export */   "findPath": () => (/* binding */ findPath),
-/* harmony export */   "cleanPath": () => (/* binding */ cleanPath)
+/* harmony export */   "grabMatchParams": () => (/* binding */ grabMatchParams),
+/* harmony export */   "setMatchPaths": () => (/* binding */ setMatchPaths)
 /* harmony export */ });
 /* harmony import */ var _gatsbyjs_reach_router_lib_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @gatsbyjs/reach-router/lib/utils */ "./node_modules/@gatsbyjs/reach-router/lib/utils.js");
 /* harmony import */ var _strip_prefix__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./strip-prefix */ "./.cache/strip-prefix.js");
@@ -1967,7 +2092,15 @@ const pathCache = new Map();
 let matchPaths = [];
 
 const trimPathname = rawPathname => {
-  const pathname = decodeURIComponent(rawPathname); // Remove the pathPrefix from the pathname.
+  let newRawPathname = rawPathname;
+  const queryIndex = rawPathname.indexOf(`?`);
+
+  if (queryIndex !== -1) {
+    const [path, qs] = rawPathname.split(`?`);
+    newRawPathname = `${path}?${encodeURIComponent(qs)}`;
+  }
+
+  const pathname = decodeURIComponent(newRawPathname); // Remove the pathPrefix from the pathname.
 
   const trimmedPathname = (0,_strip_prefix__WEBPACK_IMPORTED_MODULE_1__["default"])(pathname, decodeURIComponent("")) // Remove any hashfragment
   .split(`#`)[0];
@@ -2113,17 +2246,17 @@ const cleanPath = rawPathname => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Link": () => (/* reexport safe */ gatsby_link__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   "withAssetPrefix": () => (/* reexport safe */ gatsby_link__WEBPACK_IMPORTED_MODULE_1__.withAssetPrefix),
-/* harmony export */   "withPrefix": () => (/* reexport safe */ gatsby_link__WEBPACK_IMPORTED_MODULE_1__.withPrefix),
-/* harmony export */   "graphql": () => (/* binding */ graphql),
-/* harmony export */   "parsePath": () => (/* reexport safe */ gatsby_link__WEBPACK_IMPORTED_MODULE_1__.parsePath),
-/* harmony export */   "navigate": () => (/* reexport safe */ gatsby_link__WEBPACK_IMPORTED_MODULE_1__.navigate),
-/* harmony export */   "useScrollRestoration": () => (/* reexport safe */ gatsby_react_router_scroll__WEBPACK_IMPORTED_MODULE_2__.useScrollRestoration),
-/* harmony export */   "StaticQueryContext": () => (/* binding */ StaticQueryContext),
-/* harmony export */   "StaticQuery": () => (/* binding */ StaticQuery),
 /* harmony export */   "PageRenderer": () => (/* reexport default from dynamic */ _public_page_renderer__WEBPACK_IMPORTED_MODULE_3___default.a),
+/* harmony export */   "StaticQuery": () => (/* binding */ StaticQuery),
+/* harmony export */   "StaticQueryContext": () => (/* binding */ StaticQueryContext),
+/* harmony export */   "graphql": () => (/* binding */ graphql),
+/* harmony export */   "navigate": () => (/* reexport safe */ gatsby_link__WEBPACK_IMPORTED_MODULE_1__.navigate),
+/* harmony export */   "parsePath": () => (/* reexport safe */ gatsby_link__WEBPACK_IMPORTED_MODULE_1__.parsePath),
+/* harmony export */   "prefetchPathname": () => (/* binding */ prefetchPathname),
+/* harmony export */   "useScrollRestoration": () => (/* reexport safe */ gatsby_react_router_scroll__WEBPACK_IMPORTED_MODULE_2__.useScrollRestoration),
 /* harmony export */   "useStaticQuery": () => (/* binding */ useStaticQuery),
-/* harmony export */   "prefetchPathname": () => (/* binding */ prefetchPathname)
+/* harmony export */   "withAssetPrefix": () => (/* reexport safe */ gatsby_link__WEBPACK_IMPORTED_MODULE_1__.withAssetPrefix),
+/* harmony export */   "withPrefix": () => (/* reexport safe */ gatsby_link__WEBPACK_IMPORTED_MODULE_1__.withPrefix)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -2219,13 +2352,13 @@ function graphql() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "PageResourceStatus": () => (/* binding */ PageResourceStatus),
 /* harmony export */   "BaseLoader": () => (/* binding */ BaseLoader),
+/* harmony export */   "PageResourceStatus": () => (/* binding */ PageResourceStatus),
 /* harmony export */   "ProdLoader": () => (/* binding */ ProdLoader),
-/* harmony export */   "setLoader": () => (/* binding */ setLoader),
-/* harmony export */   "publicLoader": () => (/* binding */ publicLoader),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "getStaticQueryResults": () => (/* binding */ getStaticQueryResults)
+/* harmony export */   "getStaticQueryResults": () => (/* binding */ getStaticQueryResults),
+/* harmony export */   "publicLoader": () => (/* binding */ publicLoader),
+/* harmony export */   "setLoader": () => (/* binding */ setLoader)
 /* harmony export */ });
 /* harmony import */ var _prefetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./prefetch */ "./.cache/prefetch.js");
 /* harmony import */ var _emitter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./emitter */ "./.cache/emitter.js");
@@ -2290,7 +2423,10 @@ const doesConnectionSupportPrefetch = () => {
   }
 
   return true;
-};
+}; // Regex that matches common search crawlers
+
+
+const BOT_REGEX = /bot|crawler|spider|crawling/i;
 
 const toPageResources = (pageData, component = null) => {
   const page = {
@@ -2615,6 +2751,11 @@ class BaseLoader {
   shouldPrefetch(pagePath) {
     // Skip prefetching if we know user is on slow or constrained connection
     if (!doesConnectionSupportPrefetch()) {
+      return false;
+    } // Don't prefetch if this is a crawler bot
+
+
+    if (navigator.userAgent && BOT_REGEX.test(navigator.userAgent)) {
       return false;
     } // Check if the page exists.
 
@@ -3095,6 +3236,7 @@ function stripPrefix(str, prefix = ``) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "BaseContext": () => (/* binding */ BaseContext),
 /* harmony export */   "Link": () => (/* binding */ Link),
 /* harmony export */   "Location": () => (/* binding */ Location),
 /* harmony export */   "LocationProvider": () => (/* binding */ LocationProvider),
@@ -3104,16 +3246,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ServerLocation": () => (/* binding */ ServerLocation),
 /* harmony export */   "createHistory": () => (/* reexport safe */ _lib_history__WEBPACK_IMPORTED_MODULE_4__.createHistory),
 /* harmony export */   "createMemorySource": () => (/* reexport safe */ _lib_history__WEBPACK_IMPORTED_MODULE_4__.createMemorySource),
+/* harmony export */   "globalHistory": () => (/* reexport safe */ _lib_history__WEBPACK_IMPORTED_MODULE_4__.globalHistory),
 /* harmony export */   "isRedirect": () => (/* binding */ isRedirect),
+/* harmony export */   "matchPath": () => (/* reexport safe */ _lib_utils__WEBPACK_IMPORTED_MODULE_3__.match),
 /* harmony export */   "navigate": () => (/* reexport safe */ _lib_history__WEBPACK_IMPORTED_MODULE_4__.navigate),
 /* harmony export */   "redirectTo": () => (/* binding */ redirectTo),
-/* harmony export */   "globalHistory": () => (/* reexport safe */ _lib_history__WEBPACK_IMPORTED_MODULE_4__.globalHistory),
-/* harmony export */   "matchPath": () => (/* reexport safe */ _lib_utils__WEBPACK_IMPORTED_MODULE_3__.match),
 /* harmony export */   "useLocation": () => (/* binding */ useLocation),
-/* harmony export */   "useNavigate": () => (/* binding */ useNavigate),
-/* harmony export */   "useParams": () => (/* binding */ useParams),
 /* harmony export */   "useMatch": () => (/* binding */ useMatch),
-/* harmony export */   "BaseContext": () => (/* binding */ BaseContext)
+/* harmony export */   "useNavigate": () => (/* binding */ useNavigate),
+/* harmony export */   "useParams": () => (/* binding */ useParams)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);

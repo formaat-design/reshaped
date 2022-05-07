@@ -69,7 +69,10 @@ const doesConnectionSupportPrefetch = () => {
   }
 
   return true;
-};
+}; // Regex that matches common search crawlers
+
+
+const BOT_REGEX = /bot|crawler|spider|crawling/i;
 
 const toPageResources = (pageData, component = null) => {
   const page = {
@@ -396,6 +399,11 @@ class BaseLoader {
   shouldPrefetch(pagePath) {
     // Skip prefetching if we know user is on slow or constrained connection
     if (!doesConnectionSupportPrefetch()) {
+      return false;
+    } // Don't prefetch if this is a crawler bot
+
+
+    if (navigator.userAgent && BOT_REGEX.test(navigator.userAgent)) {
       return false;
     } // Check if the page exists.
 
