@@ -1,0 +1,15 @@
+[data-custom] {
+  background: var(--rs-color-background-positive-faded);
+  padding: var(--rs-unit-x2);
+  border-radius: var(--rs-unit-radius-small);
+}
+
+/**
+* To make our predefined media queries work – check the Remix guideline of how to use PostCSS: 
+* https://remix.run/docs/en/v1/guides/styling#postcss
+*/
+@media (--rs-viewport-l) {
+  [data-custom] {
+    background: var(--rs-color-background-critical-faded);
+  }
+}

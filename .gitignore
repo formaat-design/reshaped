@@ -1,6 +1,3 @@
-## Keep examples ignored while they are WIP
-/examples/remix-starter
-
 vendor/*.tgz
 .DS_Store
 node_modules
