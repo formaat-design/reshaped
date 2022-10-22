@@ -3,8 +3,11 @@
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
+exports.default = exports.ProdLoader = exports.PageResourceStatus = exports.BaseLoader = void 0;
 exports.getStaticQueryResults = getStaticQueryResults;
-exports.default = exports.publicLoader = exports.setLoader = exports.ProdLoader = exports.BaseLoader = exports.PageResourceStatus = void 0;
+exports.setLoader = exports.publicLoader = void 0;
+
+var _reactServerDomWebpack = require("react-server-dom-webpack");
 
 var _prefetch = _interopRequireDefault(require("./prefetch"));
 
@@ -27,8 +30,6 @@ const PageResourceStatus = {
   Success: `success`
 };
 exports.PageResourceStatus = PageResourceStatus;
-
-const preferDefault = m => m && m.default || m;
 
 const stripSurroundingSlashes = s => {
   s = s[0] === `/` ? s.slice(1) : s;
@@ -74,7 +75,7 @@ const doesConnectionSupportPrefetch = () => {
 
 const BOT_REGEX = /bot|crawler|spider|crawling/i;
 
-const toPageResources = (pageData, component = null) => {
+const toPageResources = (pageData, component = null, head) => {
   const page = {
     componentChunkName: pageData.componentChunkName,
     path: pageData.path,
@@ -85,10 +86,28 @@ const toPageResources = (pageData, component = null) => {
   };
   return {
     component,
+    head,
     json: pageData.result,
     page
   };
 };
+
+function waitForResponse(response) {
+  return new Promise(resolve => {
+    try {
+      const result = response.readRoot();
+      resolve(result);
+    } catch (err) {
+      if (Object.hasOwnProperty.call(err, `_response`) && Object.hasOwnProperty.call(err, `_status`)) {
+        setTimeout(() => {
+          waitForResponse(response).then(resolve);
+        }, 200);
+      } else {
+        throw err;
+      }
+    }
+  });
+}
 
 class BaseLoader {
   constructor(loadComponent, matchPaths) {
@@ -111,6 +130,7 @@ class BaseLoader {
     this.inFlightDb = new Map();
     this.staticQueryDb = {};
     this.pageDataDb = new Map();
+    this.partialHydrationDb = new Map();
     this.isPrefetchQueueRunning = false;
     this.prefetchQueued = [];
     this.prefetchTriggered = new Set();
@@ -217,6 +237,67 @@ class BaseLoader {
     });
   }
 
+  fetchPartialHydrationJson(loadObj) {
+    const {
+      pagePath,
+      retries = 0
+    } = loadObj;
+    const url = createPageDataUrl(pagePath).replace(`.json`, `-rsc.json`);
+    return this.memoizedGet(url).then(req => {
+      const {
+        status,
+        responseText
+      } = req; // Handle 200
+
+      if (status === 200) {
+        try {
+          return Object.assign(loadObj, {
+            status: PageResourceStatus.Success,
+            payload: responseText
+          });
+        } catch (err) {// continue regardless of error
+        }
+      } // Handle 404
+
+
+      if (status === 404 || status === 200) {
+        // If the request was for a 404/500 page and it doesn't exist, we're done
+        if (pagePath === `/404.html` || pagePath === `/500.html`) {
+          return Object.assign(loadObj, {
+            status: PageResourceStatus.Error
+          });
+        } // Need some code here to cache the 404 request. In case
+        // multiple loadPageDataJsons result in 404s
+
+
+        return this.fetchPartialHydrationJson(Object.assign(loadObj, {
+          pagePath: `/404.html`,
+          notFound: true
+        }));
+      } // handle 500 response (Unrecoverable)
+
+
+      if (status === 500) {
+        return this.fetchPartialHydrationJson(Object.assign(loadObj, {
+          pagePath: `/500.html`,
+          internalServerError: true
+        }));
+      } // Handle everything else, including status === 0, and 503s. Should retry
+
+
+      if (retries < 3) {
+        return this.fetchPartialHydrationJson(Object.assign(loadObj, {
+          retries: retries + 1
+        }));
+      } // Retried 3 times already, result is an error.
+
+
+      return Object.assign(loadObj, {
+        status: PageResourceStatus.Error
+      });
+    });
+  }
+
   loadPageDataJson(rawPath) {
     const pagePath = (0, _findPath.findPath)(rawPath);
 
@@ -232,6 +313,25 @@ class BaseLoader {
       pagePath
     }).then(pageData => {
       this.pageDataDb.set(pagePath, pageData);
+      return pageData;
+    });
+  }
+
+  loadPartialHydrationJson(rawPath) {
+    const pagePath = (0, _findPath.findPath)(rawPath);
+
+    if (this.partialHydrationDb.has(pagePath)) {
+      const pageData = this.partialHydrationDb.get(pagePath);
+
+      if (process.env.BUILD_STAGE !== `develop` || !pageData.stale) {
+        return Promise.resolve(pageData);
+      }
+    }
+
+    return this.fetchPartialHydrationJson({
+      pagePath
+    }).then(pageData => {
+      this.partialHydrationDb.set(pagePath, pageData);
       return pageData;
     });
   }
@@ -263,29 +363,26 @@ class BaseLoader {
       return this.inFlightDb.get(pagePath);
     }
 
-    const inFlightPromise = Promise.all([this.loadAppData(), this.loadPageDataJson(pagePath)]).then(allData => {
-      const result = allData[1];
+    let inFlightPromise;
 
-      if (result.status === PageResourceStatus.Error) {
-        return {
-          status: PageResourceStatus.Error
-        };
-      }
+    if (global.hasPartialHydration) {
+      inFlightPromise = Promise.all([this.loadAppData(), this.loadPageDataJson(pagePath), this.loadPartialHydrationJson(pagePath)]).then(([appData, {
+        payload: pageData
+      }, result]) => {
+        if (result.status === PageResourceStatus.Error) {
+          return {
+            status: PageResourceStatus.Error
+          };
+        }
 
-      let pageData = result.payload;
-      const {
-        componentChunkName,
-        staticQueryHashes = []
-      } = pageData;
-      const finalResult = {};
-      const componentChunkPromise = this.loadComponent(componentChunkName).then(component => {
-        finalResult.createdAt = new Date();
-        let pageResources;
+        const finalResult = {}; // In develop we have separate chunks for template and Head components
+        // to enable HMR (fast refresh requires single exports).
+        // In production we have shared chunk with both exports. Double loadComponent here
+        // will be deduped by webpack runtime resulting in single request and single module
+        // being loaded for both `component` and `head`.
 
-        if (!component || component instanceof Error) {
-          finalResult.status = PageResourceStatus.Error;
-          finalResult.error = component;
-        } else {
+        const componentChunkPromise = this.loadComponent(pageData.componentChunkName, `head`).then(head => {
+          finalResult.createdAt = new Date();
           finalResult.status = PageResourceStatus.Success;
 
           if (result.notFound === true) {
@@ -293,77 +390,208 @@ class BaseLoader {
           }
 
           pageData = Object.assign(pageData, {
-            webpackCompilationHash: allData[0] ? allData[0].webpackCompilationHash : ``
+            webpackCompilationHash: appData ? appData.webpackCompilationHash : ``
           });
-          pageResources = toPageResources(pageData, component);
-        } // undefined if final result is an error
+          const pageResources = toPageResources(pageData, null, head);
+
+          if (result.payload && typeof result.payload === `string`) {
+            pageResources.partialHydration = result.payload;
+            const readableStream = new ReadableStream({
+              start(controller) {
+                const te = new TextEncoder();
+                controller.enqueue(te.encode(result.payload));
+              },
+
+              pull(controller) {
+                // close on next read when queue is empty
+                controller.close();
+              },
+
+              cancel() {}
+
+            });
+            return waitForResponse((0, _reactServerDomWebpack.createFromReadableStream)(readableStream)).then(result => {
+              pageResources.partialHydration = result;
+              return pageResources;
+            });
+          } // undefined if final result is an error
 
 
-        return pageResources;
-      });
-      const staticQueryBatchPromise = Promise.all(staticQueryHashes.map(staticQueryHash => {
-        // Check for cache in case this static query result has already been loaded
-        if (this.staticQueryDb[staticQueryHash]) {
-          const jsonPayload = this.staticQueryDb[staticQueryHash];
-          return {
+          return pageResources;
+        }); // Necessary for head component
+
+        const staticQueryBatchPromise = Promise.all((pageData.staticQueryHashes || []).map(staticQueryHash => {
+          // Check for cache in case this static query result has already been loaded
+          if (this.staticQueryDb[staticQueryHash]) {
+            const jsonPayload = this.staticQueryDb[staticQueryHash];
+            return {
+              staticQueryHash,
+              jsonPayload
+            };
+          }
+
+          return this.memoizedGet(`${__PATH_PREFIX__}/page-data/sq/d/${staticQueryHash}.json`).then(req => {
+            const jsonPayload = JSON.parse(req.responseText);
+            return {
+              staticQueryHash,
+              jsonPayload
+            };
+          }).catch(() => {
+            throw new Error(`We couldn't load "${__PATH_PREFIX__}/page-data/sq/d/${staticQueryHash}.json"`);
+          });
+        })).then(staticQueryResults => {
+          const staticQueryResultsMap = {};
+          staticQueryResults.forEach(({
             staticQueryHash,
             jsonPayload
+          }) => {
+            staticQueryResultsMap[staticQueryHash] = jsonPayload;
+            this.staticQueryDb[staticQueryHash] = jsonPayload;
+          });
+          return staticQueryResultsMap;
+        });
+        return Promise.all([componentChunkPromise, staticQueryBatchPromise]).then(([pageResources, staticQueryResults]) => {
+          let payload;
+
+          if (pageResources) {
+            payload = { ...pageResources,
+              staticQueryResults: staticQueryResults
+            };
+            finalResult.payload = payload;
+
+            _emitter.default.emit(`onPostLoadPageResources`, {
+              page: payload,
+              pageResources: payload
+            });
+          }
+
+          this.pageDb.set(pagePath, finalResult);
+
+          if (finalResult.error) {
+            return {
+              error: finalResult.error,
+              status: finalResult.status
+            };
+          }
+
+          return payload;
+        }) // when static-query fail to load we throw a better error
+        .catch(err => {
+          return {
+            error: err,
+            status: PageResourceStatus.Error
+          };
+        });
+      });
+    } else {
+      inFlightPromise = Promise.all([this.loadAppData(), this.loadPageDataJson(pagePath)]).then(allData => {
+        const result = allData[1];
+
+        if (result.status === PageResourceStatus.Error) {
+          return {
+            status: PageResourceStatus.Error
           };
         }
 
-        return this.memoizedGet(`${__PATH_PREFIX__}/page-data/sq/d/${staticQueryHash}.json`).then(req => {
-          const jsonPayload = JSON.parse(req.responseText);
-          return {
+        let pageData = result.payload;
+        const {
+          componentChunkName,
+          staticQueryHashes = []
+        } = pageData;
+        const finalResult = {}; // In develop we have separate chunks for template and Head components
+        // to enable HMR (fast refresh requires single exports).
+        // In production we have shared chunk with both exports. Double loadComponent here
+        // will be deduped by webpack runtime resulting in single request and single module
+        // being loaded for both `component` and `head`.
+
+        const componentChunkPromise = Promise.all([this.loadComponent(componentChunkName), this.loadComponent(componentChunkName, `head`)]).then(([component, head]) => {
+          finalResult.createdAt = new Date();
+          let pageResources;
+
+          if (!component || component instanceof Error) {
+            finalResult.status = PageResourceStatus.Error;
+            finalResult.error = component;
+          } else {
+            finalResult.status = PageResourceStatus.Success;
+
+            if (result.notFound === true) {
+              finalResult.notFound = true;
+            }
+
+            pageData = Object.assign(pageData, {
+              webpackCompilationHash: allData[0] ? allData[0].webpackCompilationHash : ``
+            });
+            pageResources = toPageResources(pageData, component, head);
+          } // undefined if final result is an error
+
+
+          return pageResources;
+        });
+        const staticQueryBatchPromise = Promise.all(staticQueryHashes.map(staticQueryHash => {
+          // Check for cache in case this static query result has already been loaded
+          if (this.staticQueryDb[staticQueryHash]) {
+            const jsonPayload = this.staticQueryDb[staticQueryHash];
+            return {
+              staticQueryHash,
+              jsonPayload
+            };
+          }
+
+          return this.memoizedGet(`${__PATH_PREFIX__}/page-data/sq/d/${staticQueryHash}.json`).then(req => {
+            const jsonPayload = JSON.parse(req.responseText);
+            return {
+              staticQueryHash,
+              jsonPayload
+            };
+          }).catch(() => {
+            throw new Error(`We couldn't load "${__PATH_PREFIX__}/page-data/sq/d/${staticQueryHash}.json"`);
+          });
+        })).then(staticQueryResults => {
+          const staticQueryResultsMap = {};
+          staticQueryResults.forEach(({
             staticQueryHash,
             jsonPayload
-          };
-        }).catch(() => {
-          throw new Error(`We couldn't load "${__PATH_PREFIX__}/page-data/sq/d/${staticQueryHash}.json"`);
-        });
-      })).then(staticQueryResults => {
-        const staticQueryResultsMap = {};
-        staticQueryResults.forEach(({
-          staticQueryHash,
-          jsonPayload
-        }) => {
-          staticQueryResultsMap[staticQueryHash] = jsonPayload;
-          this.staticQueryDb[staticQueryHash] = jsonPayload;
-        });
-        return staticQueryResultsMap;
-      });
-      return Promise.all([componentChunkPromise, staticQueryBatchPromise]).then(([pageResources, staticQueryResults]) => {
-        let payload;
-
-        if (pageResources) {
-          payload = { ...pageResources,
-            staticQueryResults
-          };
-          finalResult.payload = payload;
-
-          _emitter.default.emit(`onPostLoadPageResources`, {
-            page: payload,
-            pageResources: payload
+          }) => {
+            staticQueryResultsMap[staticQueryHash] = jsonPayload;
+            this.staticQueryDb[staticQueryHash] = jsonPayload;
           });
-        }
+          return staticQueryResultsMap;
+        });
+        return Promise.all([componentChunkPromise, staticQueryBatchPromise]).then(([pageResources, staticQueryResults]) => {
+          let payload;
 
-        this.pageDb.set(pagePath, finalResult);
+          if (pageResources) {
+            payload = { ...pageResources,
+              staticQueryResults
+            };
+            finalResult.payload = payload;
 
-        if (finalResult.error) {
+            _emitter.default.emit(`onPostLoadPageResources`, {
+              page: payload,
+              pageResources: payload
+            });
+          }
+
+          this.pageDb.set(pagePath, finalResult);
+
+          if (finalResult.error) {
+            return {
+              error: finalResult.error,
+              status: finalResult.status
+            };
+          }
+
+          return payload;
+        }) // when static-query fail to load we throw a better error
+        .catch(err => {
           return {
-            error: finalResult.error,
-            status: finalResult.status
+            error: err,
+            status: PageResourceStatus.Error
           };
-        }
-
-        return payload;
-      }) // when static-query fail to load we throw a better error
-      .catch(err => {
-        return {
-          error: err,
-          status: PageResourceStatus.Error
-        };
+        });
       });
-    });
+    }
+
     inFlightPromise.then(() => {
       this.inFlightDb.delete(pagePath);
     }).catch(error => {
@@ -508,12 +736,27 @@ class BaseLoader {
 
   doPrefetch(pagePath) {
     const pageDataUrl = createPageDataUrl(pagePath);
-    return (0, _prefetch.default)(pageDataUrl, {
-      crossOrigin: `anonymous`,
-      as: `fetch`
-    }).then(() => // This was just prefetched, so will return a response from
-    // the cache instead of making another request to the server
-    this.loadPageDataJson(pagePath));
+
+    if (global.hasPartialHydration) {
+      return Promise.all([(0, _prefetch.default)(pageDataUrl, {
+        crossOrigin: `anonymous`,
+        as: `fetch`
+      }).then(() => // This was just prefetched, so will return a response from
+      // the cache instead of making another request to the server
+      this.loadPageDataJson(pagePath)), (0, _prefetch.default)(pageDataUrl.replace(`.json`, `-rsc.json`), {
+        crossOrigin: `anonymous`,
+        as: `fetch`
+      }).then(() => // This was just prefetched, so will return a response from
+      // the cache instead of making another request to the server
+      this.loadPartialHydrationJson(pagePath))]);
+    } else {
+      return (0, _prefetch.default)(pageDataUrl, {
+        crossOrigin: `anonymous`,
+        as: `fetch`
+      }).then(() => // This was just prefetched, so will return a response from
+      // the cache instead of making another request to the server
+      this.loadPageDataJson(pagePath));
+    }
   }
 
   hovering(rawPath) {
@@ -577,12 +820,16 @@ const createComponentUrls = componentChunkName => (window.___chunkMapping[compon
 
 class ProdLoader extends BaseLoader {
   constructor(asyncRequires, matchPaths, pageData) {
-    const loadComponent = chunkName => {
-      if (!asyncRequires.components[chunkName]) {
-        throw new Error(`We couldn't find the correct component chunk with the name ${chunkName}`);
+    const loadComponent = (chunkName, exportType = `components`) => {
+      if (!global.hasPartialHydration) {
+        exportType = `components`;
       }
 
-      return asyncRequires.components[chunkName]().then(preferDefault) // loader will handle the case when component is error
+      if (!asyncRequires[exportType][chunkName]) {
+        throw new Error(`We couldn't find the correct component chunk with the name "${chunkName}"`);
+      }
+
+      return asyncRequires[exportType][chunkName]() // loader will handle the case when component is error
       .catch(err => err);
     };
 
@@ -612,6 +859,31 @@ class ProdLoader extends BaseLoader {
 
   loadPageDataJson(rawPath) {
     return super.loadPageDataJson(rawPath).then(data => {
+      if (data.notFound) {
+        // check if html file exist using HEAD request:
+        // if it does we should navigate to it instead of showing 404
+        return doFetch(rawPath, `HEAD`).then(req => {
+          if (req.status === 200) {
+            // page (.html file) actually exist (or we asked for 404 )
+            // returning page resources status as errored to trigger
+            // regular browser navigation to given page
+            return {
+              status: PageResourceStatus.Error
+            };
+          } // if HEAD request wasn't 200, return notFound result
+          // and show 404 page
+
+
+          return data;
+        });
+      }
+
+      return data;
+    });
+  }
+
+  loadPartialHydrationJson(rawPath) {
+    return super.loadPartialHydrationJson(rawPath).then(data => {
       if (data.notFound) {
         // check if html file exist using HEAD request:
         // if it does we should navigate to it instead of showing 404

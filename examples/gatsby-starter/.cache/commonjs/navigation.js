@@ -3,9 +3,9 @@
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
+exports.RouteUpdates = void 0;
 exports.init = init;
 exports.shouldUpdateScroll = shouldUpdateScroll;
-exports.RouteUpdates = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 

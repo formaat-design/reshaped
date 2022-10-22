@@ -3,13 +3,13 @@
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
-exports.VisuallyHidden = VisuallyHidden;
-exports.Overlay = Overlay;
-exports.CloseButton = CloseButton;
-exports.HeaderOpenClose = HeaderOpenClose;
-exports.Header = Header;
 exports.Body = Body;
+exports.CloseButton = CloseButton;
 exports.Footer = Footer;
+exports.Header = Header;
+exports.HeaderOpenClose = HeaderOpenClose;
+exports.Overlay = Overlay;
+exports.VisuallyHidden = VisuallyHidden;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 

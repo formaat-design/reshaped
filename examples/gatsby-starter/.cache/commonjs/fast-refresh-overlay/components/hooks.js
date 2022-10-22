@@ -1,8 +1,8 @@
 "use strict";
 
 exports.__esModule = true;
-exports.useStackFrame = useStackFrame;
 exports.useFileCodeFrame = useFileCodeFrame;
+exports.useStackFrame = useStackFrame;
 
 var React = _interopRequireWildcard(require("react"));
 

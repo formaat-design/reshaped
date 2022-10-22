@@ -7,7 +7,7 @@ exports.RuntimeErrors = RuntimeErrors;
 
 var React = _interopRequireWildcard(require("react"));
 
-var _stackTrace = _interopRequireDefault(require("stack-trace"));
+var _errorStackParser = _interopRequireDefault(require("error-stack-parser"));
 
 var _overlay = require("./overlay");
 
@@ -29,15 +29,17 @@ function WrappedAccordionItem({
 }) {
   var _res$sourcePosition;
 
-  const stacktrace = _stackTrace.default.parse(error);
+  const stacktrace = _errorStackParser.default.parse(error);
 
   const codeFrameInformation = (0, _utils.getCodeFrameInformation)(stacktrace);
-  const filePath = codeFrameInformation === null || codeFrameInformation === void 0 ? void 0 : codeFrameInformation.moduleId;
+  const modulePath = codeFrameInformation === null || codeFrameInformation === void 0 ? void 0 : codeFrameInformation.moduleId;
   const lineNumber = codeFrameInformation === null || codeFrameInformation === void 0 ? void 0 : codeFrameInformation.lineNumber;
   const columnNumber = codeFrameInformation === null || codeFrameInformation === void 0 ? void 0 : codeFrameInformation.columnNumber;
-  const name = codeFrameInformation === null || codeFrameInformation === void 0 ? void 0 : codeFrameInformation.functionName;
+  const name = codeFrameInformation === null || codeFrameInformation === void 0 ? void 0 : codeFrameInformation.functionName; // With the introduction of Metadata management the modulePath can have a resourceQuery that needs to be removed first
+
+  const filePath = modulePath.replace(/(\?|&)export=(default|head)$/, ``);
   const res = (0, _hooks.useStackFrame)({
-    moduleId: filePath,
+    moduleId: modulePath,
     lineNumber,
     columnNumber
   });

@@ -3,14 +3,14 @@
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
-exports.getPageChunk = getPageChunk;
 exports.default = void 0;
+exports.getPageChunk = getPageChunk;
+
+var _merge2 = _interopRequireDefault(require("lodash/merge"));
 
 var _react = _interopRequireDefault(require("react"));
 
 var _server = require("react-dom/server");
-
-var _lodash = require("lodash");
 
 var _apiRunnerSsr = require("./api-runner-ssr");
 
@@ -62,11 +62,11 @@ var _default = ({
   };
 
   const setHtmlAttributes = attributes => {
-    htmlAttributes = (0, _lodash.merge)(htmlAttributes, attributes);
+    htmlAttributes = (0, _merge2.default)(htmlAttributes, attributes);
   };
 
   const setBodyAttributes = attributes => {
-    bodyAttributes = (0, _lodash.merge)(bodyAttributes, attributes);
+    bodyAttributes = (0, _merge2.default)(bodyAttributes, attributes);
   };
 
   const setPreBodyComponents = components => {
@@ -78,7 +78,7 @@ var _default = ({
   };
 
   const setBodyProps = props => {
-    bodyProps = (0, _lodash.merge)({}, bodyProps, props);
+    bodyProps = (0, _merge2.default)({}, bodyProps, props);
   };
 
   const getHeadComponents = () => headComponents;

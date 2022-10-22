@@ -3,13 +3,13 @@
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
-exports.prettifyStack = prettifyStack;
-exports.openInEditor = openInEditor;
-exports.reloadPage = reloadPage;
-exports.skipSSR = skipSSR;
+exports.formatFilename = formatFilename;
 exports.getCodeFrameInformation = getCodeFrameInformation;
 exports.getLineNumber = getLineNumber;
-exports.formatFilename = formatFilename;
+exports.openInEditor = openInEditor;
+exports.prettifyStack = prettifyStack;
+exports.reloadPage = reloadPage;
+exports.skipSSR = skipSSR;
 
 var _anser = _interopRequireDefault(require("anser"));
 
@@ -46,16 +46,19 @@ function skipSSR() {
 }
 
 function getCodeFrameInformation(stackTrace) {
-  const callSite = stackTrace.find(CallSite => CallSite.getFileName());
+  const stackFrame = stackTrace.find(stackFrame => {
+    const fileName = stackFrame.getFileName();
+    return fileName && fileName !== `[native code]`; // Quirk of Safari error stack frames
+  });
 
-  if (!callSite) {
+  if (!stackFrame) {
     return null;
   }
 
-  const moduleId = formatFilename(callSite.getFileName());
-  const lineNumber = callSite.getLineNumber();
-  const columnNumber = callSite.getColumnNumber();
-  const functionName = callSite.getFunctionName();
+  const moduleId = formatFilename(stackFrame.getFileName());
+  const lineNumber = stackFrame.getLineNumber();
+  const columnNumber = stackFrame.getColumnNumber();
+  const functionName = stackFrame.getFunctionName();
   return {
     moduleId,
     lineNumber,

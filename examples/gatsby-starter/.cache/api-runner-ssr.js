@@ -1,4 +1,8 @@
-var plugins = []
+var plugins = [{
+      name: 'partytown',
+      plugin: require('/Users/dbelyaev/development/personal/community/examples/gatsby-starter/node_modules/gatsby/dist/internal-plugins/partytown/gatsby-ssr.js'),
+      options: {"plugins":[]},
+    }]
 /* global plugins */
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [

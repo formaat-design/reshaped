@@ -20,9 +20,17 @@ class WritableAsPromise extends _stream.Writable {
     });
   }
 
-  _write(chunk, enc, cb) {
+  _write(chunk, _, next) {
     this._output += chunk.toString();
-    cb();
+    next();
+  }
+
+  _destroy(error, next) {
+    if (error instanceof Error) {
+      this._deferred.reject(error);
+    } else {
+      next();
+    }
   }
 
   end() {

@@ -3,7 +3,7 @@
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
-exports.cleanPath = exports.findPath = exports.grabMatchParams = exports.findMatchPath = exports.setMatchPaths = void 0;
+exports.setMatchPaths = exports.grabMatchParams = exports.findPath = exports.findMatchPath = exports.cleanPath = void 0;
 
 var _utils = require("@gatsbyjs/reach-router/lib/utils");
 
