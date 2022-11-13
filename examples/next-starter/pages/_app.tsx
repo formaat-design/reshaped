@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
-import { Reshaped } from "reshaped";
+import { Reshaped } from "reshaped/bundle";
 import "reshaped/themes/reshaped/theme.css";
+import "reshaped/bundle.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
