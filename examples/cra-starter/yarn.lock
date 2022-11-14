@@ -7369,9 +7369,9 @@ requires-port@^1.0.0:
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-reshaped@../../vendor/reshaped-v1.8.0-beta.tgz:
+reshaped@../../vendor/reshaped-1.8-beta.tgz:
   version "1.7.0"
-  resolved "../../vendor/reshaped-v1.8.0-beta.tgz#4992deab42d126d4b98a85673e6499252e746a21"
+  resolved "../../vendor/reshaped-1.8-beta.tgz#9cd81ef8582a686080a5cd3a43dba31ee390efe9"
   dependencies:
     autoprefixer "10.3.7"
     chalk "4.1.1"

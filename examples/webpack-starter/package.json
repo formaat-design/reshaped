@@ -8,7 +8,7 @@
     "build": "webpack"
   },
   "dependencies": {
-    "reshaped": "../../vendor/reshaped-v1.8.0-beta.tgz",
+    "reshaped": "../../vendor/reshaped-1.8-beta.tgz",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

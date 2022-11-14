@@ -21,7 +21,7 @@
     "postcss": "8.4.18",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "reshaped": "../../vendor/reshaped-v1.8.0-beta.tgz"
+    "reshaped": "../../vendor/reshaped-1.8-beta.tgz"
   },
   "devDependencies": {
     "@types/node": "18.11.3",

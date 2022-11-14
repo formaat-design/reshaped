@@ -1943,9 +1943,9 @@ regexpp@^3.2.0:
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-3.2.0.tgz#0425a2768d8f23bad70ca4b90461fa2f1213e1b2"
   integrity sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==
 
-reshaped@../../vendor/reshaped-beta-2.tgz:
+reshaped@../../vendor/reshaped-1.8-beta.tgz:
   version "1.7.0"
-  resolved "../../vendor/reshaped-beta-2.tgz#9cd81ef8582a686080a5cd3a43dba31ee390efe9"
+  resolved "../../vendor/reshaped-1.8-beta.tgz#9cd81ef8582a686080a5cd3a43dba31ee390efe9"
   dependencies:
     autoprefixer "10.3.7"
     chalk "4.1.1"

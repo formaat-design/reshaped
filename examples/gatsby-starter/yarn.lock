@@ -8496,9 +8496,9 @@ require-package-name@^2.0.1:
   resolved "https://registry.yarnpkg.com/require-package-name/-/require-package-name-2.0.1.tgz#c11e97276b65b8e2923f75dabf5fb2ef0c3841b9"
   integrity sha1-wR6XJ2tluOKSP3Xav1+y7ww4Qbk=
 
-reshaped@../../vendor/reshaped-v1.8.0-beta.tgz:
+reshaped@../../vendor/reshaped-1.8-beta.tgz:
   version "1.7.0"
-  resolved "../../vendor/reshaped-v1.8.0-beta.tgz#4992deab42d126d4b98a85673e6499252e746a21"
+  resolved "../../vendor/reshaped-1.8-beta.tgz#9cd81ef8582a686080a5cd3a43dba31ee390efe9"
   dependencies:
     autoprefixer "10.3.7"
     chalk "4.1.1"

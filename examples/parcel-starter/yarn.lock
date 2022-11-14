@@ -1479,10 +1479,12 @@ postcss-convert-values@^5.0.2:
   dependencies:
     postcss-value-parser "^4.1.0"
 
-postcss-custom-media@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-custom-media/-/postcss-custom-media-8.0.0.tgz#1be6aff8be7dc9bf1fe014bde3b71b92bb4552f1"
-  integrity sha512-FvO2GzMUaTN0t1fBULDeIvxr5IvbDXcIatt6pnJghc736nqNgsGao5NT+5+WVLAQiTt6Cb3YUms0jiPaXhL//g==
+postcss-custom-media@8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/postcss-custom-media/-/postcss-custom-media-8.0.2.tgz#c8f9637edf45fef761b014c024cee013f80529ea"
+  integrity sha512-7yi25vDAoHAkbhAzX9dHx2yc6ntS4jQvejrNcC+csQJAXjj15e7VcWfMgLqBNAbOvqi5uIa9huOVwdHbf+sKqg==
+  dependencies:
+    postcss-value-parser "^4.2.0"
 
 postcss-discard-comments@^*:
   version "5.1.1"
@@ -1959,15 +1961,15 @@ regenerator-runtime@^0.13.7:
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
   integrity sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
 
-reshaped@../../vendor/reshaped-react-v1.0.0.tgz:
-  version "1.0.0"
-  resolved "../../vendor/reshaped-react-v1.0.0.tgz#9aa0d2f7cf3c8415c52094c5ab124709f7dceb42"
+reshaped@../../vendor/reshaped-1.8-beta.tgz:
+  version "1.7.0"
+  resolved "../../vendor/reshaped-1.8-beta.tgz#9cd81ef8582a686080a5cd3a43dba31ee390efe9"
   dependencies:
     autoprefixer "10.3.7"
     chalk "4.1.1"
     commander "8.0.0"
     cssnano "5.0.8"
-    postcss-custom-media "8.0.0"
+    postcss-custom-media "8.0.2"
 
 resolve-from@^4.0.0:
   version "4.0.0"
