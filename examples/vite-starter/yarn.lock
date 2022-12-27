@@ -1203,9 +1203,9 @@ react@18.2.0:
   dependencies:
     loose-envify "^1.1.0"
 
-reshaped@../../vendor/reshaped-1.8-beta.tgz:
-  version "1.7.0"
-  resolved "../../vendor/reshaped-1.8-beta.tgz#9cd81ef8582a686080a5cd3a43dba31ee390efe9"
+reshaped@../../vendor/reshaped-test.tgz:
+  version "1.8.0"
+  resolved "../../vendor/reshaped-test.tgz#c613f459caf1ba54301c384856849bef0c4be386"
   dependencies:
     autoprefixer "10.3.7"
     chalk "4.1.1"

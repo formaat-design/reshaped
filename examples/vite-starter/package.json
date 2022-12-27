@@ -1,16 +1,18 @@
 {
   "name": "vite-starter",
   "version": "0.0.0",
+  "type": "module",
   "sideEffects": [
     "*.css"
   ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "build:themes": "reshaped theming -o src/themes"
   },
   "dependencies": {
-    "reshaped": "../../vendor/reshaped-1.8-beta.tgz",
+    "reshaped": "../../vendor/reshaped-test.tgz",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

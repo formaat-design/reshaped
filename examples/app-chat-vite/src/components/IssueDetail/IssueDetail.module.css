@@ -1,0 +1,15 @@
+.textarea {
+  border: none;
+  padding: 0 var(--rs-unit-x3);
+  resize: none;
+  background: transparent;
+  color: var(--rs-color-neutral-foreground);
+}
+
+.textarea:focus {
+  outline: none;
+}
+
+.textarea::placeholder {
+  color: inherit;
+}
