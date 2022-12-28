@@ -4,6 +4,7 @@ import IconArrowLeft from "../../icons/ArrowLeft";
 import IconAddPerson from "../../icons/AddPerson";
 import IconMoon from "../../icons/Moon";
 import IconSun from "../../icons/Sun";
+import s from "./Sidebar.module.css";
 
 const data = [
   {
@@ -16,7 +17,7 @@ const data = [
   },
   {
     name: "Marie Wagner",
-    lastReplyLabel: "Replied just now",
+    lastReplyLabel: "Just now",
     message: "Amazing, thank you",
     status: "awaiting",
   },
@@ -70,7 +71,7 @@ const Sidebar = () => {
   return (
     <View gap={4} divided height="100%">
       <SidebarHeader />
-      <View.Item grow>
+      <View.Item grow className={s.content}>
         <View gap={4}>
           <Tabs
             variant="pills-elevated"
@@ -98,7 +99,7 @@ const Sidebar = () => {
           </Tabs>
           <View gap={1}>
             {data.map((item, index) => (
-              <MessageItem {...item} active={index === 0} />
+              <MessageItem {...item} key={index} active={index === 0} />
             ))}
           </View>
         </View>

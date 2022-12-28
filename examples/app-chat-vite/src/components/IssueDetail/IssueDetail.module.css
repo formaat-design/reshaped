@@ -13,3 +13,23 @@
 .textarea::placeholder {
   color: inherit;
 }
+
+.content {
+  overflow: auto;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 0, 0, 0.1) var(--rs-unit-x2),
+    rgba(0, 0, 0, 0.3) var(--rs-unit-x4),
+    rgba(0, 0, 0, 1) var(--rs-unit-x7),
+    rgba(0, 0, 0, 1)
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 0, 0, 0.1) var(--rs-unit-x2),
+    rgba(0, 0, 0, 0.3) var(--rs-unit-x4),
+    rgba(0, 0, 0, 1) var(--rs-unit-x7),
+    rgba(0, 0, 0, 1)
+  );
+}

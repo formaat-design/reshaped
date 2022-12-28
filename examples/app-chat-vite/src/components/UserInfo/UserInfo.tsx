@@ -6,6 +6,7 @@ import IconPlus from "../../icons/Plus";
 import IconRefresh from "../../icons/Refresh";
 import StatusBadge from "../StatusBadge";
 import UsageCard from "../UsageCard";
+import s from "./UserInfo.module.css";
 
 const data = {
   name: "Marie Wagner",
@@ -142,7 +143,7 @@ const UserInfoActions = () => (
 const UserInfo = () => {
   return (
     <View height="100%" divided>
-      <View.Item grow>
+      <View.Item grow className={s.content}>
         <View divided>
           <UserInfoHeader />
           <UserInfoIssues />

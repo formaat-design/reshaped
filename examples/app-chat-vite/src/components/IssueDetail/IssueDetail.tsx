@@ -1,4 +1,17 @@
-import { View, Avatar, Text, Button, Divider, Tabs, Card } from "reshaped";
+import {
+  View,
+  Avatar,
+  Text,
+  Button,
+  Divider,
+  Tabs,
+  Card,
+  Modal,
+  Hidden,
+  useToggle,
+} from "reshaped";
+import UserInfo from "../UserInfo";
+import Sidebar from "../Sidebar";
 import ChatItem from "../ChatItem";
 import IconDocument from "../../icons/Document";
 import IconUpload from "../../icons/Upload";
@@ -6,6 +19,8 @@ import IconReply from "../../icons/Reply";
 import IconMessage from "../../icons/Message";
 import IconAddPerson from "../../icons/AddPerson";
 import IconCheckCircle from "../../icons/CheckCircle";
+import IconPersonCircle from "../../icons/PersonCircle";
+import IconMenu from "../../icons/Menu";
 import s from "./IssueDetail.module.css";
 
 const data = {
@@ -19,38 +34,80 @@ const data = {
   },
 };
 
-const IssueDetailHeader = () => (
-  <View padding={[4, 8]} gap={4} direction="row">
-    <Avatar
-      initials={data.company.name.charAt(0).toUpperCase()}
-      size={8}
-      squared
-    />
-    <View.Item grow>
-      <View gap={3} align="start">
-        <View direction="row" gap={1}>
-          <Text variant="body-medium-2">{data.company.name}</Text>
-          <View.Item>&middot;</View.Item>
-          <Text variant="body-2" color="neutral-faded">
-            {data.issue.createdLabel}
-          </Text>
-        </View>
-        <View.Item gapBefore={2}>
-          <Text>{data.issue.description}</Text>
+const IssueDetailHeader = () => {
+  const userInfoToggle = useToggle();
+  const inboxToggle = useToggle();
+
+  return (
+    <>
+      <View padding={[4, 8]} gap={4} direction="row">
+        <Avatar
+          initials={data.company.name.charAt(0).toUpperCase()}
+          size={8}
+          squared
+        />
+        <View.Item grow>
+          <View gap={3} align="start">
+            <View direction="row" gap={1}>
+              <Text variant="body-medium-2">{data.company.name}</Text>
+              <View.Item>&middot;</View.Item>
+              <Text variant="body-2" color="neutral-faded">
+                {data.issue.createdLabel}
+              </Text>
+            </View>
+            <View.Item gapBefore={2}>
+              <Text>{data.issue.description}</Text>
+            </View.Item>
+            <View>
+              <Text variant="caption-1" color="neutral-faded">
+                Events sent
+              </Text>
+              <Text color="critical">
+                {data.plan.eventsSent} of {data.plan.eventsLimit}
+              </Text>
+            </View>
+            <Button variant="outline">View customer in Admin</Button>
+          </View>
         </View.Item>
-        <View>
-          <Text variant="caption-1" color="neutral-faded">
-            Events sent
-          </Text>
-          <Text color="critical">
-            {data.plan.eventsSent} of {data.plan.eventsLimit}
-          </Text>
-        </View>
-        <Button variant="outline">View customer in Admin</Button>
+        <Hidden hide={{ s: false, l: true }}>
+          <Button.Aligner>
+            <Button
+              size="large"
+              onClick={inboxToggle.activate}
+              startIcon={IconMenu}
+              variant="ghost"
+            />
+          </Button.Aligner>
+        </Hidden>
+        <Hidden hide={{ s: false, xl: true }}>
+          <Button.Aligner>
+            <Button
+              size="large"
+              onClick={userInfoToggle.activate}
+              startIcon={IconPersonCircle}
+              variant="ghost"
+            />
+          </Button.Aligner>
+        </Hidden>
       </View>
-    </View.Item>
-  </View>
-);
+      <Modal
+        padding={0}
+        position="end"
+        active={userInfoToggle.active}
+        onClose={userInfoToggle.deactivate}
+      >
+        <UserInfo />
+      </Modal>
+      <Modal
+        position="start"
+        active={inboxToggle.active}
+        onClose={inboxToggle.deactivate}
+      >
+        <Sidebar />
+      </Modal>
+    </>
+  );
+};
 
 const ChatTimeline = () => (
   <View padding={[4, 8]} gap={5}>
@@ -131,7 +188,7 @@ const IssueDetail = () => {
       <IssueDetailHeader />
       <View.Item grow>
         <View height="100%">
-          <View.Item grow>
+          <View.Item grow className={s.content}>
             <ChatTimeline />
           </View.Item>
           <View.Item>

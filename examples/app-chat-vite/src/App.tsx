@@ -1,4 +1,4 @@
-import { Reshaped, View } from "reshaped";
+import { Reshaped, View, Hidden } from "reshaped";
 import "./themes/plain/theme.css";
 import Sidebar from "./components/Sidebar";
 import UserInfo from "./components/UserInfo";
@@ -7,15 +7,28 @@ import IssueDetail from "./components/IssueDetail";
 function AppInner() {
   return (
     <View direction="row" height="100vh" align="stretch" divided>
-      <View backgroundColor="neutral-faded" padding={4} width="25%">
-        <Sidebar />
-      </View>
+      <Hidden hide={{ s: true, l: false }}>
+        {(className) => (
+          <View
+            backgroundColor="neutral-faded"
+            padding={4}
+            width={{ s: "33%", xl: "25%" }}
+            className={className}
+          >
+            <Sidebar />
+          </View>
+        )}
+      </Hidden>
       <View.Item grow>
         <IssueDetail />
       </View.Item>
-      <View width="25%">
-        <UserInfo />
-      </View>
+      <Hidden hide={{ s: true, xl: false }}>
+        {(className) => (
+          <View width="25%" className={className}>
+            <UserInfo />
+          </View>
+        )}
+      </Hidden>
     </View>
   );
 }
