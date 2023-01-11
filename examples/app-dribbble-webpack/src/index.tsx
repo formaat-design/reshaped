@@ -21,7 +21,7 @@ const App = () => {
 
               <Stack gap={6} direction="row">
                 {shots.map((shot) => (
-                  <Stack.Item size={{ s: 12, m: 6, l: 4, xl: 3 }}>
+                  <Stack.Item columns={{ s: 12, m: 6, l: 4, xl: 3 }}>
                     <ShotCard {...shot} />
                   </Stack.Item>
                 ))}

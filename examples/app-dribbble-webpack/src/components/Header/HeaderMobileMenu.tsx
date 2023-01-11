@@ -61,7 +61,7 @@ const HeaderMobileMenu = () => {
 
         <Frame padding={4}>
           <Stack direction="row">
-            <Stack.Item size={6}>
+            <Stack.Item columns={6}>
               <Stack align="start">
                 <Link color="inherit" variant="plain">
                   Profile
@@ -72,7 +72,7 @@ const HeaderMobileMenu = () => {
               </Stack>
             </Stack.Item>
 
-            <Stack.Item size={6}>
+            <Stack.Item columns={6}>
               <Stack align="start">
                 <Link color="inherit" variant="plain">
                   My likes

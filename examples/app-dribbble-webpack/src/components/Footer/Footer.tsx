@@ -16,7 +16,7 @@ const Footer = () => {
         <Stack gap={6} divided>
           <Stack.Item>
             <Stack gap={{ s: 6, xl: 4 }} direction="row">
-              <Stack.Item size={{ s: 12, xl: 3 }}>
+              <Stack.Item columns={{ s: 12, xl: 3 }}>
                 <Stack gap={6}>
                   <Text color="primary">
                     <Logo />
@@ -49,21 +49,21 @@ const Footer = () => {
                 </Stack>
               </Stack.Item>
 
-              <Stack.Item size={{ s: 12, xl: 9 }}>
+              <Stack.Item columns={{ s: 12, xl: 9 }}>
                 <Stack direction="row" gap={{ s: 6, l: 4 }}>
-                  <Stack.Item size={{ s: 6, l: 3 }}>
+                  <Stack.Item columns={{ s: 6, l: 3 }}>
                     <Menu {...data.sections.designers} />
                   </Stack.Item>
-                  <Stack.Item size={{ s: 6, l: 3 }}>
+                  <Stack.Item columns={{ s: 6, l: 3 }}>
                     <Stack gap={6}>
                       <Menu {...data.sections.hire} />
                       <Menu {...data.sections.brands} />
                     </Stack>
                   </Stack.Item>
-                  <Stack.Item size={{ s: 6, l: 3 }}>
+                  <Stack.Item columns={{ s: 6, l: 3 }}>
                     <Menu {...data.sections.company} />
                   </Stack.Item>
-                  <Stack.Item size={{ s: 6, l: 3 }}>
+                  <Stack.Item columns={{ s: 6, l: 3 }}>
                     <Stack gap={6}>
                       <Menu {...data.sections.directories} />
                       <Menu {...data.sections.assets} />
