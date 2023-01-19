@@ -1,4 +1,4 @@
-[data-custom] {
+.customComponent {
   background: var(--rs-color-background-positive-faded);
   padding: var(--rs-unit-x2);
   border-radius: var(--rs-unit-radius-small);
@@ -9,7 +9,7 @@
 * https://remix.run/docs/en/v1/guides/styling#postcss
 */
 @media (--rs-viewport-l) {
-  [data-custom] {
+  .customComponent {
     background: var(--rs-color-background-critical-faded);
   }
 }

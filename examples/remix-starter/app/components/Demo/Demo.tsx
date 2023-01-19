@@ -1,5 +1,5 @@
-import { Button, Container, Frame, Text, Stack } from "reshaped/bundle";
-import styles from "./Demo.css";
+import { Button, Container, View, Text } from "reshaped";
+import styles from "./Demo.module.css";
 
 export const links = () => {
   return [{ rel: "stylesheet", href: styles }];
@@ -7,17 +7,17 @@ export const links = () => {
 
 const Demo = () => {
   return (
-    <Frame align="center" justify="center" height="100vh">
+    <View align="center" justify="center" height="100vh">
       <Container width="800px">
-        <Stack align="center">
+        <View gap={3} align="center">
           <Text variant="display-1">🎉</Text>
           <Text variant="display-2">Welcome to Reshaped</Text>
           <Text variant="featured-2" align="center">
             Reshaped is a professionally crafted design system for everyday
             product development made to match your brand. In this example
-            repository we're using it together with Remix.
+            repository we&apos;re using it together with Remix
           </Text>
-          <Stack.Item gap={6}>
+          <View.Item gapBefore={6}>
             <Button
               size="large"
               color="primary"
@@ -26,11 +26,13 @@ const Demo = () => {
             >
               Check our website
             </Button>
-          </Stack.Item>
-          <div data-custom>Custom component with styles</div>
-        </Stack>
+          </View.Item>
+          <div className={styles.customComponent}>
+            Custom component with styles
+          </div>
+        </View>
       </Container>
-    </Frame>
+    </View>
   );
 };
 

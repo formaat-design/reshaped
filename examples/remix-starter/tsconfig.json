@@ -1,13 +1,10 @@
 {
-  "exclude": ["./cypress", "./cypress.config.ts"],
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2019"],
-    "types": ["vitest/globals"],
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "target": "ES2019",
@@ -18,7 +15,6 @@
     "paths": {
       "~/*": ["./app/*"]
     },
-    "skipLibCheck": true,
 
     // Remix takes care of building everything in `remix build`.
     "noEmit": true

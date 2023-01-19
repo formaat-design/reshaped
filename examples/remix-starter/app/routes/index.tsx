@@ -1,4 +1,4 @@
-import Demo, { demoLinks } from "~/components/Demo";
+import Demo, { demoLinks } from "../components/Demo";
 
 export function links() {
   return [...demoLinks()];
