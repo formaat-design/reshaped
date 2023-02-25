@@ -2,13 +2,17 @@
   {
     "id": "6388f480e2a143d37fbe7af12685c4b74e6a5bfc",
     "name": "Reshaped dark",
-    "selectedTokenSets": {},
+    "selectedTokenSets": {
+      "Reshaped Dark": "disabled"
+    },
     "$figmaStyleReferences": {}
   },
   {
     "id": "e1a41b7ac7bfe91ad53401c6d2210b3f2465b441",
     "name": "Reshaped light",
-    "selectedTokenSets": {},
+    "selectedTokenSets": {
+      "Reshaped Dark": "disabled"
+    },
     "$figmaStyleReferences": {}
   }
 ]
