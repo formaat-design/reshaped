@@ -327,6 +327,7 @@
 --rs-easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
 --rs-shadow-base: 0px 2px 4px rgba(0, 0, 0, 0.12);
 --rs-shadow-elevated: 0px 10px 70px rgba(0, 0, 0, 0.15);
+					
 			}
 		
 			[data-rs-theme="dribbble-light"] {
@@ -367,6 +368,7 @@
 --rs-color-rgb-background-page-faded: 248, 248, 248;
 --rs-color-rgb-background-base: 255, 255, 255;
 --rs-color-rgb-background-elevated: 255, 255, 255;
+					color-scheme: light;
 			}
 		
 			[data-rs-theme="dribbble-dark"] {
@@ -407,5 +409,6 @@
 --rs-color-rgb-background-page-faded: 17, 23, 31;
 --rs-color-rgb-background-base: 24, 28, 37;
 --rs-color-rgb-background-elevated: 28, 33, 43;
+					color-scheme: dark;
 			}
 		
