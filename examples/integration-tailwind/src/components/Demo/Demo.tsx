@@ -1,6 +1,5 @@
-import React from "react";
-import { Button, Container, Text, View } from "reshaped/bundle";
-import * as s from "./Demo.module.css";
+import { Button, Container, View, Text } from "reshaped";
+import s from "./Demo.module.css";
 
 const Demo = () => {
   return (
@@ -12,7 +11,7 @@ const Demo = () => {
           <Text variant="featured-2" align="center">
             Reshaped is a professionally crafted design system for everyday
             product development made to match your brand. In this example
-            repository we&apos;re using it together with Gatsby.
+            repository we're using it together with Vite.
           </Text>
           <View.Item gapBefore={6}>
             <Button
