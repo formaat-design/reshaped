@@ -1,7 +1,8 @@
-import { Button, Container, View, Text } from "reshaped";
-import s from "./Demo.module.css";
+import { Button, Container, View, Text, useTheme, Divider } from "reshaped";
 
 const Demo = () => {
+  const { invertColorMode } = useTheme();
+
   return (
     <View align="center" justify="center" height="100vh">
       <Container width="800px">
@@ -23,7 +24,12 @@ const Demo = () => {
               Check our website
             </Button>
           </View.Item>
-          <div className={s.customComponent}>Custom component with styles</div>
+          <div className="bg-elevated p-x4 l:p-x6 text-critical border border-neutral-faded rounded-medium shadow-elevated">
+            Tailwind is used here with Reshaped tokens
+          </div>
+          <Button color="primary" variant="outline" onClick={invertColorMode}>
+            Invert color mode
+          </Button>
         </View>
       </Container>
     </View>
