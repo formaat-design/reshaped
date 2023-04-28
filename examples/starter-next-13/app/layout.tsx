@@ -9,7 +9,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body data-rs-theme="reshaped">
+      <body data-rs-theme="reshaped" data-rs-color-mode="light">
         <Reshaped theme="reshaped">{children}</Reshaped>
       </body>
     </html>

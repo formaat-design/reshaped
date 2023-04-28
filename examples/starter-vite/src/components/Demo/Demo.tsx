@@ -4,11 +4,13 @@ import s from "./Demo.module.css";
 const Demo = () => {
   return (
     <View align="center" justify="center" height="100vh">
-      <Container width="800px">
+      <Container width="600px">
         <View align="center" gap={3}>
-          <Text variant="display-1">🎉</Text>
-          <Text variant="display-2">Welcome to Reshaped</Text>
-          <Text variant="featured-2" align="center">
+          <Text variant="title-1">🎉</Text>
+          <Text variant="title-5" align="center">
+            Welcome to Reshaped
+          </Text>
+          <Text variant="featured-3" align="center" color="neutral-faded">
             Reshaped is a professionally crafted design system for everyday
             product development made to match your brand. In this example
             repository we're using it together with Vite.

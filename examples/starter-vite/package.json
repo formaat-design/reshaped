@@ -8,11 +8,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview",
-    "build:themes": "reshaped theming -o src/themes"
+    "serve": "vite preview"
   },
   "dependencies": {
-    "reshaped": "../../vendor/reshaped-react-v1.13.1.tgz",
+    "reshaped": "../../vendor/reshaped-react-v2.0.0-beta.8.tgz",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
