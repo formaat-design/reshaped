@@ -36,21 +36,27 @@ const SidebarHeader = () => {
     <View direction="row" gap={4} align="center">
       <View.Item grow>
         <Button.Aligner position="start">
-          <Button variant="ghost" startIcon={IconArrowLeft}>
+          <Button variant="ghost" icon={IconArrowLeft}>
             Back to Queue
           </Button>
         </Button.Aligner>
       </View.Item>
 
       <Button
-        startIcon={colorMode === "dark" ? IconSun : IconMoon}
+        icon={colorMode === "dark" ? IconSun : IconMoon}
         variant="ghost"
         onClick={invertColorMode}
       />
 
       <Badge.Container position="bottom-end">
         <Badge color="positive" rounded size="small" />
-        <Avatar initials="L" color="critical-faded" size={6} squared />
+        <Avatar
+          initials="L"
+          color="critical"
+          variant="faded"
+          size={6}
+          squared
+        />
       </Badge.Container>
     </View>
   );
@@ -60,7 +66,7 @@ const SidebarFooter = () => {
   return (
     <View align="center" gap={1}>
       <Text color="neutral-faded">Someone is waiting for help</Text>
-      <Button variant="outline" fullWidth startIcon={IconAddPerson}>
+      <Button variant="outline" fullWidth icon={IconAddPerson}>
         Help next customer
       </Button>
     </View>
@@ -81,7 +87,9 @@ const Sidebar = () => {
             <Tabs.List>
               <Tabs.Item value="helping">
                 <View direction="row" align="center" gap={2}>
-                  <Text variant="body-medium-2">Helping</Text>
+                  <Text variant="body-3" weight="medium">
+                    Helping
+                  </Text>
                   <Badge variant="outline" rounded size="small">
                     4
                   </Badge>
@@ -89,7 +97,9 @@ const Sidebar = () => {
               </Tabs.Item>
               <Tabs.Item value="snoozed">
                 <View direction="row" align="center" gap={2}>
-                  <Text variant="body-medium-2">Snoozed</Text>
+                  <Text variant="body-3" weight="medium">
+                    Snoozed
+                  </Text>
                   <Badge variant="outline" rounded size="small">
                     4
                   </Badge>

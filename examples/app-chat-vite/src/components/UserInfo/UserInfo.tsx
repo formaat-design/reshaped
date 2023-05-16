@@ -27,8 +27,10 @@ const data = {
 };
 
 const UserInfoHeader = () => (
-  <View gap={2} padding={[4, 6]}>
-    <Text variant="title-3">{data.name}</Text>
+  <View gap={2} paddingInline={6} paddingBlock={4}>
+    <Text variant="featured-3" weight="bold">
+      {data.name}
+    </Text>
     <View gap={1}>
       {data.contacts.map((contact) => (
         <View gap={1} direction="row" align="center" key={contact.name}>
@@ -40,20 +42,24 @@ const UserInfoHeader = () => (
     <View.Item gapBefore={10}>
       <View gap={2} direction="row" align="center">
         <Avatar size={8} initials="K" />
-        <Text variant="body-medium-2">Assigned to {data.assignee}</Text>
+        <Text variant="body-3" weight="medium">
+          Assigned to {data.assignee}
+        </Text>
       </View>
     </View.Item>
   </View>
 );
 
 const UserInfoIssues = () => (
-  <View gap={2} padding={[4, 6]}>
+  <View gap={2} paddingInline={6} paddingBlock={4}>
     <View direction="row" gap={4} align="center">
       <View.Item grow>
-        <Text variant="body-medium-2">Open issues</Text>
+        <Text variant="body-3" weight="medium">
+          Open issues
+        </Text>
       </View.Item>
       <Button.Aligner>
-        <Button startIcon={IconPlus} variant="ghost" />
+        <Button icon={IconPlus} variant="ghost" />
       </Button.Aligner>
     </View>
     <View gap={1}>
@@ -63,10 +69,16 @@ const UserInfoIssues = () => (
             size="small"
             roundedCorners
             startSlot={
-              <Avatar size={6} initials="I" squared color="neutral-faded" />
+              <Avatar
+                size={6}
+                initials="I"
+                squared
+                color="neutral"
+                variant="faded"
+              />
             }
           >
-            <Text variant="body-2" as="span">
+            <Text variant="body-3" as="span">
               {issue.title}
             </Text>
             &nbsp;
@@ -81,13 +93,15 @@ const UserInfoIssues = () => (
 );
 
 const UserInfoPlan = () => (
-  <View padding={[4, 6]} gap={4}>
+  <View paddingInline={6} paddingBlock={4} gap={4}>
     <View direction="row" gap={4} align="center">
       <View.Item grow>
-        <Text variant="body-medium-2">Plan details</Text>
+        <Text variant="body-3" weight="medium">
+          Plan details
+        </Text>
       </View.Item>
       <Button.Aligner>
-        <Button startIcon={IconRefresh} variant="ghost" />
+        <Button icon={IconRefresh} variant="ghost" />
       </Button.Aligner>
     </View>
 
@@ -112,13 +126,15 @@ const UserInfoPlan = () => (
 );
 
 const UserInfoUsage = () => (
-  <View padding={[4, 6]} gap={4}>
+  <View paddingInline={6} paddingBlock={4} gap={4}>
     <View direction="row" gap={4} align="center">
       <View.Item grow>
-        <Text variant="body-medium-2">Usage</Text>
+        <Text variant="body-3" weight="medium">
+          Usage
+        </Text>
       </View.Item>
       <Button.Aligner>
-        <Button startIcon={IconRefresh} variant="ghost" />
+        <Button icon={IconRefresh} variant="ghost" />
       </Button.Aligner>
     </View>
 
@@ -130,11 +146,11 @@ const UserInfoUsage = () => (
 );
 
 const UserInfoActions = () => (
-  <View padding={[4, 6]} gap={2}>
-    <Button fullWidth variant="outline" startIcon={IconSnooze}>
+  <View paddingBlock={4} paddingInline={6} gap={2}>
+    <Button fullWidth variant="outline" icon={IconSnooze}>
       Snooze
     </Button>
-    <Button fullWidth variant="outline" startIcon={IconCheckCircle}>
+    <Button fullWidth variant="outline" icon={IconCheckCircle}>
       Mark as helped
     </Button>
   </View>

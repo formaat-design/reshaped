@@ -43,13 +43,15 @@ const MessageItem = (props: Props) => {
       onClick={handleClick}
     >
       <View direction="row" gap={1}>
-        <Text variant="body-medium-2">{name}</Text>
+        <Text variant="body-3" weight="medium">
+          {name}
+        </Text>
         <View.Item>&middot;</View.Item>
-        <Text variant="body-2" color="neutral-faded">
+        <Text variant="body-3" color="neutral-faded">
           {lastReplyLabel}
         </Text>
       </View>
-      <Text variant="body-2" maxLines={1}>
+      <Text variant="body-3" maxLines={1}>
         {message}
       </Text>
     </MenuItem>

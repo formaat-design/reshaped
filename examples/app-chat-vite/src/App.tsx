@@ -10,7 +10,7 @@ function AppInner() {
       <Hidden hide={{ s: true, l: false }}>
         {(className) => (
           <View
-            backgroundColor="neutral-faded"
+            backgroundColor="page-faded"
             padding={4}
             width={{ s: "33%", xl: "25%" }}
             className={className}

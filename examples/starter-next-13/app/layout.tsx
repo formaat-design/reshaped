@@ -8,9 +8,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body data-rs-theme="reshaped" data-rs-color-mode="light">
+    <html lang="en" data-rs-theme="reshaped" data-rs-color-mode="light">
+      <body>
         <Reshaped theme="reshaped">{children}</Reshaped>
+        {children}
       </body>
     </html>
   );

@@ -3,27 +3,30 @@
   "version": "0.1.13",
   "license": "MIT",
   "private": true,
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "start": "webpack serve",
     "build": "webpack"
   },
   "dependencies": {
-    "reshaped": "../../vendor/reshaped-react-v2.0.0-beta.8.tgz",
+    "reshaped": "../../vendor/reshaped-react-v2.0.0-nightly.2.tgz",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/react": "18.0.21",
-    "@types/react-dom": "18.0.6",
-    "css-loader": "6.7.1",
-    "html-webpack-plugin": "5.5.0",
-    "mini-css-extract-plugin": "2.6.1",
-    "postcss-loader": "7.0.1",
-    "style-loader": "3.3.1",
-    "ts-loader": "9.4.1",
-    "typescript": "4.8.4",
-    "webpack": "5.74.0",
-    "webpack-cli": "4.10.0",
-    "webpack-dev-server": "4.11.1"
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "css-loader": "6.7.3",
+    "html-webpack-plugin": "5.5.1",
+    "mini-css-extract-plugin": "2.7.5",
+    "postcss-loader": "7.3.0",
+    "style-loader": "3.3.2",
+    "ts-loader": "9.4.2",
+    "typescript": "5.0.4",
+    "webpack": "5.82.0",
+    "webpack-cli": "5.0.2",
+    "webpack-dev-server": "4.13.3"
   }
 }

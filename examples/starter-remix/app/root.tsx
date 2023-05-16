@@ -46,7 +46,7 @@ function Document({
   title?: string;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-rs-theme="reshaped" data-rs-color-mode="light">
       <head>
         {title ? <title>{title}</title> : null}
         <Meta />

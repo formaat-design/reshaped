@@ -22,7 +22,8 @@ const ChatItem = (props: Props) => {
           ) : (
             <Avatar
               squared={fromAuthor}
-              color={fromAuthor ? "primary" : "neutral-faded"}
+              color={fromAuthor ? "primary" : "neutral"}
+              variant={fromAuthor ? "solid" : "faded"}
               size={fromAuthor ? 10 : 8}
               initials={title.charAt(0).toUpperCase()}
             />
@@ -32,7 +33,8 @@ const ChatItem = (props: Props) => {
           <View gap={2}>
             <View gap={1} direction="row">
               <Text
-                variant={icon ? "body-2" : "body-medium-2"}
+                variant={"body-3"}
+                weight={icon ? "medium" : "regular"}
                 color={icon ? "neutral-faded" : "neutral"}
               >
                 {title}

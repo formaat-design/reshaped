@@ -26,7 +26,7 @@ const Demo = () => {
               Check our website
             </Button>
           </View.Item>
-          <div className="border border-black rounded-medium shadow-raised p-">
+          <div className="bg-elevated p-x4 l:p-x6 text-critical border border-neutral-faded rounded-medium shadow-raised">
             Tailwind is used here with Reshaped tokens
           </div>
           <Button color="primary" variant="outline" onClick={invertColorMode}>

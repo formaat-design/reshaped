@@ -40,7 +40,7 @@ const IssueDetailHeader = () => {
 
   return (
     <>
-      <View padding={[4, 8]} gap={4} direction="row">
+      <View paddingBlock={4} paddingInline={8} gap={4} direction="row">
         <Avatar
           initials={data.company.name.charAt(0).toUpperCase()}
           size={8}
@@ -49,9 +49,11 @@ const IssueDetailHeader = () => {
         <View.Item grow>
           <View gap={3} align="start">
             <View direction="row" gap={1}>
-              <Text variant="body-medium-2">{data.company.name}</Text>
+              <Text variant="body-3" weight="medium">
+                {data.company.name}
+              </Text>
               <View.Item>&middot;</View.Item>
-              <Text variant="body-2" color="neutral-faded">
+              <Text variant="body-3" color="neutral-faded">
                 {data.issue.createdLabel}
               </Text>
             </View>
@@ -74,7 +76,7 @@ const IssueDetailHeader = () => {
             <Button
               size="large"
               onClick={inboxToggle.activate}
-              startIcon={IconMenu}
+              icon={IconMenu}
               variant="ghost"
             />
           </Button.Aligner>
@@ -84,7 +86,7 @@ const IssueDetailHeader = () => {
             <Button
               size="large"
               onClick={userInfoToggle.activate}
-              startIcon={IconPersonCircle}
+              icon={IconPersonCircle}
               variant="ghost"
             />
           </Button.Aligner>
@@ -110,8 +112,10 @@ const IssueDetailHeader = () => {
 };
 
 const ChatTimeline = () => (
-  <View padding={[4, 8]} gap={5}>
-    <Text variant="body-medium-2">Today</Text>
+  <View paddingBlock={4} paddingInline={8} gap={5}>
+    <Text variant="body-3" weight="medium">
+      Today
+    </Text>
     <ChatItem
       fromAuthor
       title="Marie Wagner"
@@ -132,7 +136,13 @@ const ChatTimeline = () => (
         <View direction="row" align="center">
           <View.Item grow>
             <View direction="row" gap={2} align="center">
-              <Avatar size={6} initials="I" squared color="critical-faded" />
+              <Avatar
+                size={6}
+                initials="I"
+                squared
+                color="critical"
+                variant="faded"
+              />
               <View.Item grow>Usage limit reached</View.Item>
             </View>
           </View.Item>
@@ -158,7 +168,7 @@ const ChatTimeline = () => (
 
 const ChatField = () => {
   return (
-    <View padding={[4, 8]} gap={4}>
+    <View paddingBlock={4} paddingInline={8} gap={4}>
       <Tabs value="chat" variant="pills">
         <Tabs.List>
           <Tabs.Item value="email">Email</Tabs.Item>
@@ -170,10 +180,10 @@ const ChatField = () => {
       </Tabs>
       <textarea className={s.textarea} placeholder="Reply to Marie Wagner" />
       <View direction="row" gap={2} align="center">
-        <Button startIcon={IconDocument} variant="ghost" />
-        <Button startIcon={IconUpload} variant="ghost" />
+        <Button icon={IconDocument} variant="ghost" />
+        <Button icon={IconUpload} variant="ghost" />
         <View.Item gapBefore="auto">
-          <Button color="primary" startIcon={IconReply}>
+          <Button color="primary" icon={IconReply}>
             Send to chat
           </Button>
         </View.Item>

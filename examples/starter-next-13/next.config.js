@@ -1,6 +1,11 @@
 /** @type {import("next").NextConfig} */
 const nextConfig = {
-  experimental: { appDir: true },
+  transpilePackages: ["reshaped"],
+  // modularizeImports: {
+  //   reshaped: {
+  //     transform: "reshaped/components/{{member}}",
+  //   },
+  // },
 };
 
 module.exports = nextConfig;
