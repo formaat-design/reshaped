@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html>
       <Head />
-      <body data-rs-theme="reshaped" data-rs-color-mode="light">
+      <body data-rs-theme="reshaped">
         <Main />
         <NextScript />
       </body>
