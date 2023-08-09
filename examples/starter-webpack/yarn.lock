@@ -799,7 +799,12 @@ colorette@^2.0.14:
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-2.0.16.tgz#713b9af84fdb000139f04546bd4a93f62a5085da"
   integrity sha512-hUewv7oMjCp+wkBv5Rm0v87eJhq4woh5rSR+42YSQJKecCqgIqNkZ6lAlQms/BwHPJA5NKMRlpxPRv0n8HQW6g==
 
-commander@10.0.1, commander@^10.0.1:
+commander@11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-11.0.0.tgz#43e19c25dbedc8256203538e8d7e9346877a6f67"
+  integrity sha512-9HMlXtt/BNoYr8ooyjjNRdIilOTkVJXB+GhxMTtOKwk0R4j4lS4NpjuqmRxroBfnfTSHQIHQB7wryHhXarNjmQ==
+
+commander@^10.0.1:
   version "10.0.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-10.0.1.tgz#881ee46b4f77d1c1dccc5823433aa39b022cbe06"
   integrity sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==
@@ -2628,13 +2633,14 @@ requires-port@^1.0.0:
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-reshaped@../../vendor/reshaped-react-v2.0.0-nightly.2.tgz:
-  version "2.0.0-nightly.2"
-  resolved "../../vendor/reshaped-react-v2.0.0-nightly.2.tgz#ac1c9097986547b280d6c0fa9017067f70c4ec84"
+reshaped@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/reshaped/-/reshaped-2.2.0.tgz#3d7f638620550ab21ad6e6c6775824dcfe0a9116"
+  integrity sha512-5uMMlGULkbm2Js9ZgruBQByYquVQvbGHOvQkID6O2CjAHj/Zt97CNIo/Y9PGi0IqZy3aus6KZ4yvl9p5TJdBlw==
   dependencies:
     autoprefixer "10.4.14"
     chalk "4.1.2"
-    commander "10.0.1"
+    commander "11.0.0"
     cssnano "6.0.1"
     postcss-custom-media "8.0.2"
 

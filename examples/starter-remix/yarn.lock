@@ -2767,10 +2767,10 @@ comma-separated-tokens@^2.0.0:
   resolved "https://registry.yarnpkg.com/comma-separated-tokens/-/comma-separated-tokens-2.0.3.tgz#4e89c9458acb61bc8fef19f4529973b2392839ee"
   integrity sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==
 
-commander@10.0.1:
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-10.0.1.tgz#881ee46b4f77d1c1dccc5823433aa39b022cbe06"
-  integrity sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==
+commander@11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-11.0.0.tgz#43e19c25dbedc8256203538e8d7e9346877a6f67"
+  integrity sha512-9HMlXtt/BNoYr8ooyjjNRdIilOTkVJXB+GhxMTtOKwk0R4j4lS4NpjuqmRxroBfnfTSHQIHQB7wryHhXarNjmQ==
 
 commander@^7.2.0:
   version "7.2.0"
@@ -7170,13 +7170,14 @@ requireindex@^1.2.0:
   resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.2.0.tgz#3463cdb22ee151902635aa6c9535d4de9c2ef1ef"
   integrity sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==
 
-reshaped@../../vendor/reshaped-react-v2.0.0-nightly.0-4.tgz:
-  version "2.0.0-nightly.0"
-  resolved "../../vendor/reshaped-react-v2.0.0-nightly.0-4.tgz#82e0d5a453bcafaac524e162cffd33cd8d0b7d26"
+reshaped@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/reshaped/-/reshaped-2.2.0.tgz#3d7f638620550ab21ad6e6c6775824dcfe0a9116"
+  integrity sha512-5uMMlGULkbm2Js9ZgruBQByYquVQvbGHOvQkID6O2CjAHj/Zt97CNIo/Y9PGi0IqZy3aus6KZ4yvl9p5TJdBlw==
   dependencies:
     autoprefixer "10.4.14"
     chalk "4.1.2"
-    commander "10.0.1"
+    commander "11.0.0"
     cssnano "6.0.1"
     postcss-custom-media "8.0.2"
 

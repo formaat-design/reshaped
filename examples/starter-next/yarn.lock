@@ -2143,9 +2143,10 @@ regexpp@^3.2.0:
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-3.2.0.tgz#0425a2768d8f23bad70ca4b90461fa2f1213e1b2"
   integrity sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==
 
-reshaped@../../vendor/reshaped-beta.tgz:
-  version "2.0.0-nightly.5"
-  resolved "../../vendor/reshaped-beta.tgz#10fe7e80edb3d6158113330b31990c0dbb166e34"
+reshaped@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/reshaped/-/reshaped-2.2.0.tgz#3d7f638620550ab21ad6e6c6775824dcfe0a9116"
+  integrity sha512-5uMMlGULkbm2Js9ZgruBQByYquVQvbGHOvQkID6O2CjAHj/Zt97CNIo/Y9PGi0IqZy3aus6KZ4yvl9p5TJdBlw==
   dependencies:
     autoprefixer "10.4.14"
     chalk "4.1.2"

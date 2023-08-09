@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^13.4.1",
+    "next": "13.4.13-canary.15",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "reshaped": "../../vendor/reshaped-react-v2.0.0-nightly.2.tgz"
+    "reshaped": "2.2.0"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
