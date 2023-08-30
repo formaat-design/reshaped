@@ -2,6 +2,11 @@
 
 This is a multi-purpose public repository for [Reshaped](https://reshaped.so).
 
+It contains [examples of the project setups](./examples/) using Reshaped together with different build tools and frameworks.
+We're working hard on making sure it works with the most possible amount of popular technologies while still following our principle of staying as close as possible to native browser technologies.
+
+---
+
 Reshaped React package is available for free on NPM.
 
 ```
@@ -12,10 +17,9 @@ You can find installation guidelines in our documentation: https://reshaped.so/c
 
 Reshaped Figma library and source code environment licenses are sitributed through our [website](https://reshaped.so).
 
-It contains [examples of the project setups](./examples/) using Reshaped together with different build tools and frameworks.
-We're working hard on making sure it works with the most possible amount of popular technologies while still following our principle of staying as close as possible to native browser technologies.
+---
 
-We build it in public as much as possible so we use this repository to [track our development and design process](https://formaat.notion.site/64cf1f5713344a7383330e0402f43949?v=b88a6dbbcb9a4faeb867d40d09ec0b12).
+We build Reshaped in public so we use this repository to [track our development and design process](https://formaat.notion.site/64cf1f5713344a7383330e0402f43949?v=b88a6dbbcb9a4faeb867d40d09ec0b12).
 That should help you understand when to expect specific features to be shipped and what's already planned in the roadmap.
 
 <a href="https://formaat.notion.site/64cf1f5713344a7383330e0402f43949?v=b88a6dbbcb9a4faeb867d40d09ec0b12" target="_blank">
