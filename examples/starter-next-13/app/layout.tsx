@@ -1,6 +1,4 @@
-"use client";
-import { Reshaped } from "reshaped";
-import "reshaped/themes/reshaped/theme.css";
+import App from "../components/App";
 
 export default function RootLayout({
   children,
@@ -10,8 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-rs-theme="reshaped" data-rs-color-mode="light">
       <body>
-        <Reshaped theme="reshaped">{children}</Reshaped>
-        {children}
+        <App>{children}</App>
       </body>
     </html>
   );

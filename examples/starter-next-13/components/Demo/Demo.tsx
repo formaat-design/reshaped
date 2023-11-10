@@ -1,35 +1,7 @@
-"use client";
-
-import {
-  Container,
-  View,
-  Text,
-  Button,
-  ButtonProps,
-  useIsomorphicLayoutEffect,
-  Responsive,
-  useToast,
-} from "reshaped";
-import type { ViewProps } from "reshaped";
+import { Container, View, Text, Button } from "reshaped";
 import s from "./Demo.module.css";
 
 const Demo = () => {
-  const toast = useToast();
-
-  const foo: ButtonProps = {
-    variant: "faded",
-  };
-
-  const bar: ViewProps = {
-    gap: 2,
-  };
-
-  const baz: Responsive<number> = { s: 2, m: 3 };
-
-  console.log(foo, bar, baz);
-
-  useIsomorphicLayoutEffect(() => {}, []);
-
   return (
     <View align="center" justify="center" height="100vh">
       <Container width="600px">
@@ -53,6 +25,7 @@ const Demo = () => {
               Check our website
             </Button>
           </View.Item>
+
           <div className={s.customComponent}>Custom component with styles</div>
         </View>
       </Container>
