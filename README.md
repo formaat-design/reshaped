@@ -15,7 +15,7 @@ Reshaped React package is available for free on NPM.
 npm install reshaped
 ```
 
-You can find installation guidelines in our documentation: [https://reshaped.so/content/docs/getting-started/react/installation](https://reshaped.so/docs/getting-started/react/installation)
+You can find installation guidelines in our documentation: https://reshaped.so/docs/getting-started/react/installation
 
 Reshaped Figma library and source code environment licenses are sitributed through our [website](https://reshaped.so).
 
