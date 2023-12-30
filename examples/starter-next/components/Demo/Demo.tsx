@@ -1,4 +1,4 @@
-import { Container, View, Text, Button } from "reshaped/bundle";
+import { Container, View, Text, Button } from "reshaped";
 import s from "./Demo.module.css";
 
 const Demo = () => {
@@ -25,6 +25,7 @@ const Demo = () => {
               Check our website
             </Button>
           </View.Item>
+
           <div className={s.customComponent}>Custom component with styles</div>
         </View>
       </Container>
