@@ -35,7 +35,7 @@ function AppInner() {
 
 function App() {
   return (
-    <Reshaped theme="plain">
+    <Reshaped theme="plain" >
       <AppInner />
     </Reshaped>
   );

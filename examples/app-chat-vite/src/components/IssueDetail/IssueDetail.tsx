@@ -9,6 +9,7 @@ import {
   Modal,
   Hidden,
   useToggle,
+  useToast
 } from "reshaped";
 import UserInfo from "../UserInfo";
 import Sidebar from "../Sidebar";
@@ -167,6 +168,8 @@ const ChatTimeline = () => (
 );
 
 const ChatField = () => {
+  const toast = useToast();
+
   return (
     <View paddingBlock={4} paddingInline={8} gap={4}>
       <Tabs value="chat" variant="pills">
@@ -183,7 +186,7 @@ const ChatField = () => {
         <Button icon={IconDocument} variant="ghost" />
         <Button icon={IconUpload} variant="ghost" />
         <View.Item gapBefore="auto">
-          <Button color="primary" icon={IconReply}>
+          <Button color="primary" icon={IconReply} onClick={() => toast.show({ text: 'Something went wrong', color: 'critical', position: 'top' })}>
             Send to chat
           </Button>
         </View.Item>

@@ -1,3 +1,6 @@
-const { config } = require("reshaped/config/postcss");
+const path = require('path');
+const { getConfig } = require("reshaped/config/postcss");
 
-module.exports = config;
+module.exports = getConfig({ 
+  themeMediaCSSPath: path.resolve(__dirname, 'src/themes/plain/media.css'),
+});
