@@ -1,7 +1,5 @@
 # Welcome to Remix!
 
-This is a very basic example of a simple Remix app using the Remix App Server.
-
 - [Remix Docs](https://remix.run/docs)
 
 ## Development
@@ -9,7 +7,6 @@ This is a very basic example of a simple Remix app using the Remix App Server.
 From your terminal:
 
 ```sh
-npm install
 npm run dev
 ```
 
@@ -29,8 +26,13 @@ Then run the app in production mode:
 npm start
 ```
 
-## Preview
+Now you'll need to pick a host to deploy it to.
 
-Open this example on [CodeSandbox](https://codesandbox.com):
+### DIY
 
-[![Open in CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/remix-run/examples/tree/main/basic)
+If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
+
+Make sure to deploy the output of `remix build`
+
+- `build/`
+- `public/build/`

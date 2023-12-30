@@ -1,10 +1,9 @@
 /** @type {import('@remix-run/dev').AppConfig} */
-module.exports = {
+export default {
   ignoredRouteFiles: ["**/.*"],
   serverDependenciesToBundle: ["reshaped"],
-  future: {
-    unstable_cssModules: true,
-    unstable_cssSideEffectImports: true,
-    unstable_postcss: true,
-  },
+  // appDirectory: "app",
+  // assetsBuildDirectory: "public/build",
+  // publicPath: "/build/",
+  // serverBuildPath: "build/index.js",
 };
