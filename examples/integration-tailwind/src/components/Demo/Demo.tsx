@@ -1,4 +1,4 @@
-import { Button, Container, View, Text, useTheme, Divider } from "reshaped";
+import { Button, Container, View, Text, useTheme, MenuItem } from "reshaped";
 
 const Demo = () => {
   const { invertColorMode } = useTheme();
@@ -32,6 +32,8 @@ const Demo = () => {
           <Button color="primary" variant="outline" onClick={invertColorMode}>
             Invert color mode
           </Button>
+
+          <MenuItem onClick={() => {}}>Hello</MenuItem>
         </View>
       </Container>
     </View>

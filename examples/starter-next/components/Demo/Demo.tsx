@@ -1,4 +1,4 @@
-import { Container, View, Text, Button } from "reshaped";
+import { Container, View, Text, Button, MenuItem } from "reshaped";
 import s from "./Demo.module.css";
 
 const Demo = () => {
@@ -27,6 +27,12 @@ const Demo = () => {
           </View.Item>
 
           <div className={s.customComponent}>Custom component with styles</div>
+
+          <MenuItem href="#">Hello</MenuItem>
+
+          <div className="w-[200px] h-[200px] flex bg-neutral-faded justify-center">
+            Hello
+          </div>
         </View>
       </Container>
     </View>
