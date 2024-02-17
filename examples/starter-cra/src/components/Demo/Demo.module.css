@@ -4,13 +4,6 @@
   border-radius: var(--rs-unit-radius-small);
 }
 
-/* 
-Create React App won't support custom media queries since it doesn't work with custom postcss configs.
-However you can still use responsive syntax of Reshaped components.
-
-In case you need support for Reshaped media queries values directly in your CSS, 
-you can use tools like Craco that allow customizing CRA setup.
-*/
 @media (--rs-viewport-l) {
   .customComponent {
     background: var(--rs-color-background-critical-faded);
