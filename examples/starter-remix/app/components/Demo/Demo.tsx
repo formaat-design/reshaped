@@ -1,10 +1,6 @@
 import { Button, Container, View, Text } from "reshaped";
 import styles from "./Demo.module.css";
 
-export const links = () => {
-  return [{ rel: "stylesheet", href: styles }];
-};
-
 const Demo = () => {
   return (
     <View align="center" justify="center" height="100vh">

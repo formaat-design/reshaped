@@ -9,15 +9,15 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "reshaped": "2.5.1",
+    "reshaped": "2.10.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/react": "18.2.20",
-    "@types/react-dom": "18.2.7",
-    "@vitejs/plugin-react": "4.0.4",
-    "typescript": "5.1.6",
-    "vite": "4.4.9"
+    "@types/react": "18.2.67",
+    "@types/react-dom": "18.2.22",
+    "@vitejs/plugin-react": "4.2.1",
+    "typescript": "5.4.3",
+    "vite": "5.2.2"
   }
 }

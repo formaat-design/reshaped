@@ -1,8 +1,5 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
@@ -10,10 +7,6 @@ import {
 } from "@remix-run/react";
 import { Reshaped } from "reshaped";
 import "reshaped/themes/reshaped/theme.css";
-
-export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
-];
 
 export default function App() {
   return (
@@ -30,7 +23,6 @@ export default function App() {
         </Reshaped>
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
       </body>
     </html>
   );

@@ -4,23 +4,24 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev --manual",
+    "build": "remix vite:build",
+    "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@remix-run/css-bundle": "2.8.1",
     "@remix-run/node": "2.8.1",
     "@remix-run/react": "2.8.1",
     "@remix-run/serve": "2.8.1",
     "isbot": "4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "reshaped": "2.10.1"
+    "reshaped": "2.10.4"
   },
   "devDependencies": {
+    "vite": "5.1.5",
+    "vite-tsconfig-paths": "4.3.1",
     "@remix-run/dev": "2.8.1",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
