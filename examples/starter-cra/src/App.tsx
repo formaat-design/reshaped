@@ -5,7 +5,7 @@ import Demo from "./components/Demo";
 const App = () => (
   <Reshaped theme="reshaped">
     <Demo />
-  </Reshaped>
+   </Reshaped>
 );
 
 export default App;
