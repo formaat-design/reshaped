@@ -11,20 +11,20 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@remix-run/node": "2.8.1",
-    "@remix-run/react": "2.8.1",
-    "@remix-run/serve": "2.8.1",
+    "@remix-run/node": "2.10.2",
+    "@remix-run/react": "2.10.2",
+    "@remix-run/serve": "2.10.2",
     "isbot": "4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "reshaped": "2.10.4"
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "reshaped": "3.0.0"
   },
   "devDependencies": {
-    "vite": "5.1.5",
-    "vite-tsconfig-paths": "4.3.1",
-    "@remix-run/dev": "2.8.1",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
+    "vite": "5.3.3",
+    "vite-tsconfig-paths": "4.3.2",
+    "@remix-run/dev": "2.10.2",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
     "@typescript-eslint/eslint-plugin": "7.1.1",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
@@ -32,7 +32,7 @@
     "eslint-plugin-jsx-a11y": "6.8.0",
     "eslint-plugin-react": "7.34.0",
     "eslint-plugin-react-hooks": "4.6.0",
-    "typescript": "5.4.2"
+    "typescript": "5.5.3"
   },
   "engines": {
     "node": ">=18.0.0"

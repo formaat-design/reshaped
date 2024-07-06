@@ -10,8 +10,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
+    "moduleResolution": "Bundler",
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx"
