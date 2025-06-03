@@ -14,7 +14,7 @@
   "dependencies": {
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "reshaped": "3.3.12"
+    "reshaped": "3.6.0-canary.5"
   },
   "devDependencies": {
     "@types/react": "19.0.8",

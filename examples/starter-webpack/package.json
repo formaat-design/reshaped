@@ -11,7 +11,7 @@
     "build": "webpack"
   },
   "dependencies": {
-    "reshaped": "3.0.0",
+    "reshaped": "3.6.0-canary.5",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },

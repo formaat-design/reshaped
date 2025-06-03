@@ -28,10 +28,8 @@ const Demo = () => {
 
           <div className={s.customComponent}>Custom component with styles</div>
 
-          <MenuItem href="#">Hello</MenuItem>
-
-          <div className="w-[200px] h-[200px] flex bg-neutral-faded justify-center">
-            Hello
+          <div className="w-[200px] h-[200px] flex bg-neutral-faded justify-center items-center rounded-medium">
+            Tailwind styles
           </div>
         </View>
       </Container>
